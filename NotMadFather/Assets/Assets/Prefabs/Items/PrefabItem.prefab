@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c994afa5e0ae9d4e9bcc8c93c691243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Prefab Item
+  itemData: {fileID: 11400000, guid: 090044eb7d0c305459ec0066ebf55c22, type: 2}
   pickupSound: {fileID: 8300000, guid: eedc03704186cd9438143a7edfd6f006, type: 3}
 --- !u!82 &4336995194306840720
 AudioSource:

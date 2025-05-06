@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PickupItem : MonoBehaviour
 {
-    public string itemName;
+    public ItemData itemData; // <-- Changed from string to ItemData
     public AudioClip pickupSound;
 
     private bool playerInRange = false;
@@ -17,11 +17,11 @@ public class PickupItem : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            PlayerInventory.Instance.AddItem(itemName);
+            PlayerInventory.Instance.AddItem(itemData); // <-- Now passes ItemData, it HATED the old method (:)
             if (pickupSound != null && audioSource != null)
                 audioSource.PlayOneShot(pickupSound);
 
-            Destroy(gameObject, 0.1f); // Delay destruction for sound
+            Destroy(gameObject, 0.2f); // Delay destruction for sound
         }
     }
 
