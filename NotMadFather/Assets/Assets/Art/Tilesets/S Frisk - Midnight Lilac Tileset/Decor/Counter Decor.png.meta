@@ -635,7 +635,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Counter Decor_0: -949170195828089931
+      Counter Decor_1: 5814719505590991607
+      Counter Decor_10: -3026933944239218458
+      Counter Decor_11: -7280111817479703305
+      Counter Decor_12: -5581293936720990857
+      Counter Decor_13: -8513039935435501185
+      Counter Decor_14: -3715264287082536217
+      Counter Decor_15: -2648740700512868148
+      Counter Decor_16: 3786580845405370677
+      Counter Decor_17: 1023770158850946663
+      Counter Decor_18: -1239452484366489285
+      Counter Decor_19: -7728403856674239827
+      Counter Decor_2: 493515187154889000
+      Counter Decor_3: -7150849809461796947
+      Counter Decor_4: 5553416021359675046
+      Counter Decor_5: -3931982600075513236
+      Counter Decor_6: 4035693251155577467
+      Counter Decor_7: 5945696096906401921
+      Counter Decor_8: 7746423355214570507
+      Counter Decor_9: 8776162160487989039
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
