@@ -185,7 +185,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kitchen Cabinets Upper_0: 4810322391965251496
+      Kitchen Cabinets Upper_1: -6178668656581426180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -285,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Wall Decor_0: -1792075750742931682
+      Wall Decor_1: 8048114266779873496
+      Wall Decor_2: 9073123812746393957
+      Wall Decor_3: -7959638986245513662
+      Wall Decor_4: 5924819632780158498
+      Wall Decor_5: -9092460679583598836
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

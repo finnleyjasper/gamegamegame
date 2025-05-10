@@ -360,7 +360,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Beds_0: 546763503605980624
+      Beds_1: -185758005347352503
+      Beds_2: -7207107238128305837
+      Beds_3: 6432396459019014885
+      Beds_4: 6946757369451267036
+      Beds_5: 6440909058358582642
+      Beds_6: 5395813944072511977
+      Beds_7: -4912283708986379641
+      Beds_8: 5232559830034126396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
