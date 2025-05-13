@@ -1,27 +1,23 @@
 using UnityEngine;
 
-public class PickupItem : MonoBehaviour
+public class NPC : MonoBehaviour
 {
-    public ItemData itemData; // <-- Changed from string to ItemData
-    public AudioClip pickupSound;
-
     private bool playerInRange = false;
-    private AudioSource audioSource;
 
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+    [SerializeField] private string[] dialogue; // can copy paste text in the inspector
+    private int dialogueIndex = 0;
 
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            PlayerInventory.Instance.AddItem(itemData); // <-- Now passes ItemData, it HATED the old method (:)
-            if (pickupSound != null && audioSource != null)
-                audioSource.PlayOneShot(pickupSound);
+            Debug.Log(dialogue[dialogueIndex]);
 
-            Destroy(gameObject, 0.2f); // Delay destruction for sound
+            // goes through an npcs dialogue then loops the last line
+            if (dialogue.Length > (dialogueIndex + 1))
+                // this is where actual dialogue stuff goes...
+                // ...we debug for now
+                dialogueIndex ++;
         }
     }
 

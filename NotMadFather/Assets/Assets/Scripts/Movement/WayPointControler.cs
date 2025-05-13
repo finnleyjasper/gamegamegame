@@ -33,8 +33,6 @@ public class WaypointController : TopDownController
                 currentWaypointIndex  = (currentWaypointIndex + 1) % waypoints.Length;
             }
         }
-
-        Debug.Log("Current waypoint: " + waypoints[currentWaypointIndex].gameObject.name);
     }
 
     private Vector2 FindMovement()
