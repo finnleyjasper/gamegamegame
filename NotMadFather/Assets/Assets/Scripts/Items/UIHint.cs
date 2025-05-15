@@ -15,15 +15,15 @@ public class UIHint : MonoBehaviour
 
     public void ShowHint(bool show, GameObject caller)
     {
-        string text = "Press E to ";
+        string text = "Press E ";
 
         if (caller.tag == "Item")
         {
-            text += "pick up";
+            text += "to pick up";
         }
         else if (caller.tag == "NPC")
         {
-            text += "speak to";
+            text += "to speak to";
         }
 
         hintUI.text = text;

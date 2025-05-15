@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
 
     public bool IsAlive
     {
-        get{return isAlive;}
+        get { return isAlive; }
     }
+
 }

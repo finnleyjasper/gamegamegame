@@ -86,6 +86,20 @@ public class PlayerInventory : MonoBehaviour
         UpdateInventoryUI();
     }
 
+    public void RemoveItem(ItemData item)
+    {
+        if (items.Contains(item))
+        {
+            items.Remove(item);
+            Debug.Log("Removed: " + item.name);
+            UpdateInventoryUI();
+        }
+        else
+        {
+            Debug.Log("Can't remove " + item.name + " as it is not in the inventory");
+        }
+    }
+
     void UpdateInventoryUI()
     {
         inventoryText.text = "";
