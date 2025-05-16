@@ -30,6 +30,7 @@ public class PlayerInventory : MonoBehaviour
         else
             Destroy(gameObject);
 
+        equippedItem = noneItem;
     }
 
     void Update()
@@ -91,6 +92,7 @@ public class PlayerInventory : MonoBehaviour
         if (items.Contains(item))
         {
             items.Remove(item);
+            equippedItem = noneItem;
             Debug.Log("Removed: " + item.name);
             UpdateInventoryUI();
         }
