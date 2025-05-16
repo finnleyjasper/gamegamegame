@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {
     private PlayerController controller;
     private SpriteRenderer spriteRenderer;
+    private NoticedControl noticedControl;
 
     private Vector2 startingPosition;
 
@@ -14,15 +15,21 @@ public class Player : MonoBehaviour
         startingPosition = transform.position;
         controller = gameObject.GetComponent<PlayerController>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        noticedControl = gameObject.GetComponent<NoticedControl>();
     }
 
-    public void Die()
+    public void BeNoticed()
     {
-        isAlive = false;
-        spriteRenderer.enabled = false;
-        controller.enabled = false;
-        // empty inventory?
-        // probably other stuff here too
+        noticedControl.DoNotice();
+
+        if (noticedControl.eyesRemaining <= 0) // reset/die
+        {
+            isAlive = false;
+            spriteRenderer.enabled = false;
+            controller.enabled = false;
+            // empty inventory?
+            // probably other stuff here too
+        }
     }
 
     public void Respawn()
@@ -30,6 +37,7 @@ public class Player : MonoBehaviour
         isAlive = true;
         controller.enabled = true;
         transform.position = startingPosition;
+        noticedControl.Reset();
         spriteRenderer.enabled = true;
     }
 

@@ -3,7 +3,7 @@ using UnityEngine;
 public class InteractSpot : MonoBehaviour
 {
     public ItemData requiredItem;
-    private bool interactedWith = false;
+    public bool interactedWith = false; // this will be used outside of this script
     private bool playerInZone = false; // this is a fucking weird way to do it but i was having issues with collisionenter/stay
     private PlayerInventory player;
 

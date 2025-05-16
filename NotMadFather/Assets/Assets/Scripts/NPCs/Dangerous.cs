@@ -16,7 +16,7 @@ public class Dangerous : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().Die();
+            collision.gameObject.GetComponent<Player>().BeNoticed();
         }
     }
 }
