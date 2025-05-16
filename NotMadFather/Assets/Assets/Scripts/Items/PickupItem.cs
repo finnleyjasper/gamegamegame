@@ -19,9 +19,12 @@ public class PickupItem : MonoBehaviour
         {
             PlayerInventory.Instance.AddItem(itemData); // <-- Now passes ItemData, it HATED the old method (:)
             if (pickupSound != null && audioSource != null)
+            {
+                UIHint.Instance.ShowOutcome(this.gameObject, true);
                 audioSource.PlayOneShot(pickupSound);
+            }
 
-            Destroy(gameObject, 0.2f); // Delay destruction for sound
+            Destroy(gameObject, 0.4f); // Delay destruction for sound
         }
     }
 

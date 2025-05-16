@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Item
   - NPC
+  - Interaction
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1012186117
+    locked: 0
+  - name: UI
+    uniqueID: 1837936505
     locked: 0
   m_RenderingLayers:
   - Default
