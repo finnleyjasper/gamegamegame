@@ -9977,6 +9977,22 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3614863506875793271, guid: 52e3fe3a75459471d9c41ce01f096e6c, type: 3}
+      propertyPath: isEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614863506875793271, guid: 52e3fe3a75459471d9c41ce01f096e6c, type: 3}
+      propertyPath: patrolSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614863506875793271, guid: 52e3fe3a75459471d9c41ce01f096e6c, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614863506875793271, guid: 52e3fe3a75459471d9c41ce01f096e6c, type: 3}
+      propertyPath: obstructionMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614863506875793271, guid: 52e3fe3a75459471d9c41ce01f096e6c, type: 3}
       propertyPath: 'waypoints.Array.data[0]'
       value: 
       objectReference: {fileID: 373999745}
