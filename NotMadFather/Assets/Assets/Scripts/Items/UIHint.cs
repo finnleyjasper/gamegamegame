@@ -70,4 +70,9 @@ public class UIHint : MonoBehaviour
         hintUI.text = "";
         hintUI.gameObject.SetActive(false);
     }
+
+    public void UpdateFont(TMP_FontAsset font)
+    {
+        hintUI.font = font;
+    }
 }

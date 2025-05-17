@@ -1,4 +1,4 @@
-E = interact
+E = interact / select item in inv
 I = Open inv
 Space = Use item
-Enter = Select item
+

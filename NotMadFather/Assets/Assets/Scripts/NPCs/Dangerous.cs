@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Dangerous : MonoBehaviour
+public class Dangerous : SwitchableSprite
 {
     private Collider2D col;
     private Rigidbody2D rb;

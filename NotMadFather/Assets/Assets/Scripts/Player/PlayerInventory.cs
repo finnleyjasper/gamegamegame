@@ -63,7 +63,7 @@ public class PlayerInventory : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Return) && selectedIndex >= 0)
+            if (Input.GetKeyDown(KeyCode.E) && selectedIndex >= 0)
             {
                 if (items[selectedIndex] == equippedItem) // unequip item if selected again
                 {

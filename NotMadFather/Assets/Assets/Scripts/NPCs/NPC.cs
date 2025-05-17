@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class NPC : MonoBehaviour
+public class NPC : SwitchableSprite
 {
     public enum DialogueMode
     {
@@ -9,11 +9,12 @@ public class NPC : MonoBehaviour
         ManagerController // the manager script schedules dialogue
     }
 
-    private bool playerInRange = false;
-
+    [Header("Dialogue")]
     [SerializeField] private string[] dialogue; // can copy paste text in the inspector
-    private int dialogueIndex = 0;
     public DialogueMode currentDialogueMode;
+
+    private int dialogueIndex = 0;
+    private bool playerInRange = false;
 
     void Update()
     {

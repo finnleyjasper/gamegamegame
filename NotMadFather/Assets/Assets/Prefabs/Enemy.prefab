@@ -189,6 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbda64bb330164914960d46b229eeab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  regularSprite: {fileID: -4896621567232051643, guid: a2d4c249fe7d70946a4b9d9f59a2d2fc, type: 3}
+  spookySprite: {fileID: 5395813944072511977, guid: 694688adbd8cb7c4797b720e0d0e7e41, type: 3}
 --- !u!1 &5840263298989094102
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,11 @@ public class Manager : MonoBehaviour
     [SerializeField] private TMP_FontAsset scaryFont;
     [SerializeField] private TMP_FontAsset normalFont;
 
+    [Header("Sound")]
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip medicationMusic;
+    [SerializeField] private AudioClip spookyMusic;
+
     [Header("Other stuff")]
     public Player player;
 
@@ -30,6 +35,12 @@ public class Manager : MonoBehaviour
 
         overlay = GameObject.Find("Overlay");
         overlay.SetActive(false);
+
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.clip = medicationMusic;
+        audioSource.Play();
+
+        UpdateFonts(normalFont);
     }
 
     void Update()
@@ -65,18 +76,24 @@ public class Manager : MonoBehaviour
         // reset enemies, items, the world etc etc
     }
 
-    public void MedicationState(bool state) // true and world is normal, false and switches to weird withdrawl shit
+    public void MedicationState(bool medication) // true and world is normal, false and switches to weird withdrawl shit
     {
-        if (state)
+        if (medication) // normal
         {
             UpdateFonts(normalFont);
+            UpdateSprites(medication);
             overlay.SetActive(false);
+            audioSource.clip = medicationMusic;
+            audioSource.Play();
             // plus other stuff
         }
-        else
+        else // withdrawl
         {
             UpdateFonts(scaryFont);
+            UpdateSprites(medication);
             overlay.SetActive(true);
+            audioSource.clip = spookyMusic;
+            audioSource.Play();
             // plus other stuff
         }
 
@@ -95,5 +112,16 @@ public class Manager : MonoBehaviour
 
         }
 
+        UIHint.Instance.UpdateFont(font);
+    }
+
+    private void UpdateSprites(bool medication) // ie.. true == medication taken
+    {
+        SwitchableSprite[] sprites = Object.FindObjectsByType<SwitchableSprite>(FindObjectsSortMode.None);
+
+        foreach (SwitchableSprite sprite in sprites)
+        {
+            sprite.UpdateSprite(medication);
+        }
     }
 }

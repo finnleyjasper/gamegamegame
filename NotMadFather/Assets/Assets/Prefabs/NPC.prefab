@@ -204,10 +204,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d6377e3b1174fe0bcc147c010d7e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  regularSprite: {fileID: -4896621567232051643, guid: a2d4c249fe7d70946a4b9d9f59a2d2fc, type: 3}
+  spookySprite: {fileID: -7207107238128305837, guid: 694688adbd8cb7c4797b720e0d0e7e41, type: 3}
   dialogue:
   - '"Hello this is my dialogue"'
   - '"Did you know finn hates spelling the word ''dialogue''?"'
   - '"Anyway, he''s the coolest isn''t he..."'
+  currentDialogueMode: 0
 --- !u!1 &2752623497378961443
 GameObject:
   m_ObjectHideFlags: 0
