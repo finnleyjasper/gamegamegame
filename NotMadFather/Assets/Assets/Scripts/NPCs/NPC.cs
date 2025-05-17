@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class NPC : SwitchableSprite
 {
+    private bool recentlyFinishedDialogue = false;
+    private float dialogueResetCooldown = 0.2f; // 0.2 seconds delay
+    private float dialogueResetTimer = 0f;
+
     public enum DialogueMode
     {
         PlayerInput, // player can press E to prompt dialogue
@@ -18,7 +22,20 @@ public class NPC : SwitchableSprite
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E) && currentDialogueMode == DialogueMode.PlayerInput)
+        if (recentlyFinishedDialogue)
+        {
+            dialogueResetTimer += Time.unscaledDeltaTime;
+            if (dialogueResetTimer >= dialogueResetCooldown)
+            {
+                recentlyFinishedDialogue = false;
+                dialogueResetTimer = 0f;
+            }
+        }
+
+        if (playerInRange && Input.GetKeyDown(KeyCode.E)
+            && currentDialogueMode == DialogueMode.PlayerInput
+            && !DialogueManager.Instance.IsDialogueActive()
+            && !recentlyFinishedDialogue)
         {
             Speak();
         }
@@ -44,13 +61,10 @@ public class NPC : SwitchableSprite
 
     public void Speak()
     {
-        Debug.Log(dialogue[dialogueIndex]);
-
-        // goes through an npcs dialogue then loops the last line
-        if (dialogue.Length > (dialogueIndex + 1))
-            // this is where actual dialogue stuff goes...
-            // ...we debug for now
-            dialogueIndex++;
+        if (!DialogueManager.Instance.IsDialogueActive())
+        {
+            DialogueManager.Instance.StartDialogue(dialogue, this);
+        }
     }
 
     public int DialogueIndex
@@ -62,4 +76,10 @@ public class NPC : SwitchableSprite
     {
         get { return dialogue; }
     }
+
+    public void OnDialogueFinished()
+    {
+        recentlyFinishedDialogue = true;
+    }
+
 }
