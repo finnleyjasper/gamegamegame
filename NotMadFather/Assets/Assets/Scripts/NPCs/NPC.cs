@@ -1,23 +1,15 @@
 using System;
 using UnityEngine;
 
-public class NPC : SwitchableSprite
+public class NPC : SwitchableSprite, IDialogueObject
 {
     private bool recentlyFinishedDialogue = false;
     private float dialogueResetCooldown = 0.2f; // 0.2 seconds delay
     private float dialogueResetTimer = 0f;
 
-    public enum DialogueMode
-    {
-        PlayerInput, // player can press E to prompt dialogue
-        ManagerController // the manager script schedules dialogue
-    }
-
     [Header("Dialogue")]
     [SerializeField] private string[] dialogue; // can copy paste text in the inspector
-    public DialogueMode currentDialogueMode;
 
-    private int dialogueIndex = 0;
     private bool playerInRange = false;
 
     void Update()
@@ -33,17 +25,18 @@ public class NPC : SwitchableSprite
         }
 
         if (playerInRange && Input.GetKeyDown(KeyCode.E)
-            && currentDialogueMode == DialogueMode.PlayerInput
             && !DialogueManager.Instance.IsDialogueActive()
             && !recentlyFinishedDialogue)
         {
             Speak();
         }
+
+        Debug.Log("Player in range is " + playerInRange);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && currentDialogueMode == DialogueMode.PlayerInput)
+        if (other.CompareTag("Player"))
         {
             playerInRange = true;
             UIHint.Instance.ShowHint(true, this.gameObject);
@@ -52,7 +45,7 @@ public class NPC : SwitchableSprite
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && currentDialogueMode == DialogueMode.PlayerInput)
+        if (other.CompareTag("Player"))
         {
             playerInRange = false;
             UIHint.Instance.ShowHint(false, this.gameObject);
@@ -67,9 +60,9 @@ public class NPC : SwitchableSprite
         }
     }
 
-    public int DialogueIndex
+    public void UpdateDialogue(string[] newDialogue) // give the npc a new set of dialogue
     {
-        get { return dialogueIndex; }
+        dialogue = newDialogue;
     }
 
     public string[] Dialogue

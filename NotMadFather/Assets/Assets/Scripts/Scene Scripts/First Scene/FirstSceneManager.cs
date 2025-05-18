@@ -1,73 +1,79 @@
-// finn: update doctor text to like "well done"
 
+using System.Linq;
 using UnityEngine;
 
 public class FirstSceneManager : MonoBehaviour
 {
-    public enum GameState
+    private enum FirstSceneGameState
     {
         FirstCutscene,
         TaskOne,
         TaskOneFinished
     }
-    public GameState state = GameState.FirstCutscene;
+    private FirstSceneGameState state = FirstSceneGameState.FirstCutscene;
 
-    public Player player;
-    public PlayerController playerController;
-    public NPC doctor;
+    private Player player;
+    private PlayerController playerController;
+    private NPC doctor;
 
-    [SerializeField] private GameObject hintUI;
     [SerializeField] private WaypointTask taskOne;
 
     void Start()
     {
         doctor = GameObject.Find("Doctor").GetComponent<NPC>();
-        doctor.currentDialogueMode = NPC.DialogueMode.ManagerController; // on start the doctor should talk to the player
 
         player = GameObject.Find("Player").GetComponent<Player>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
-        SetCutscene(true);
+        Vector3 fixedCameraPos = new Vector3(8f, -3f, -10.0f);
+        Manager.Instance.SetCutscene(true, fixedCameraPos);
     }
 
     void Update()
     {
         CheckState();
 
-        if (state == GameState.FirstCutscene)
+        if (state == FirstSceneGameState.FirstCutscene) // dr dialogue
         {
-            if (doctor.DialogueIndex == 0) // show hint for first piece of dialogue
+            // show hint for first piece of dialogue
+            if (DialogueManager.Instance.CurrentIndex == 0)
             {
-                UIHint hintUIObj = hintUI.GetComponent<UIHint>();
-                hintUIObj.ShowHint(true, this.gameObject);
+                UIHint.Instance.ShowHint(true, doctor.gameObject);
+            }
+            else
+            {
+                UIHint.Instance.ShowHint(false, doctor.gameObject);
             }
         }
-        else if (state == GameState.TaskOne)
+        else if (state == FirstSceneGameState.TaskOne) // let player go do tests
         {
-            SetCutscene(false);
+
         }
-        else if (state == GameState.TaskOneFinished)
+        else if (state == FirstSceneGameState.TaskOneFinished)
         {
-           // SetCutscene(true); // movve to new script for second cutscene??
+            // SetCutscene(true); // movve to new script for second cutscene??
         }
     }
 
     public void CheckState()
     {
-
-        // starts in cutscene
-
-        // if the player pressed e, move the dialogue along until the 2nd last line
-        // the last line in dialogue[] should be the repeatable line the doctor says
-        // if the player interacts with them after the cutscene
-        if (doctor.DialogueIndex == doctor.Dialogue.Length - 1 && state == GameState.FirstCutscene)
+        if (DialogueManager.Instance.CurrentIndex == 5 && state == FirstSceneGameState.FirstCutscene) // dr finished speaking -> do tasks
         {
-            state = GameState.TaskOne;
+            Debug.Log("NEW SCENE TIME");
+            state = FirstSceneGameState.TaskOne;
+            string[] newDialogue = {
+                "Dummy text",
+                "\"I understand you're having trouble with your memory.\"",
+                "\"As a reminder, you must complete your mobily test by those ENVIROMENT THING.\"",
+                "\"You must also compelte your reflex test by the COMPUTER?\"",
+                "\"Come see me when you've completed them.\""};
+            doctor.UpdateDialogue(newDialogue);
+            Manager.Instance.SetCutscene(false, player.transform.position);
         }
-        else if (state == GameState.TaskOne && taskOne.isComplete)// waypoint task correct
+        else if (state == FirstSceneGameState.TaskOne && taskOne.isComplete) // task completed -> dr to give medication
         {
             Debug.Log("Task One finished!");
-            state = GameState.TaskOneFinished;
+            state = FirstSceneGameState.TaskOneFinished;
         }
         else // First cutscene
         {
@@ -78,17 +84,5 @@ public class FirstSceneManager : MonoBehaviour
         }
 
     }
-
-    public void SetCutscene(bool set)
-    {
-        if (set)
-        {
-            playerController.enabled = false;
-        }
-        else
-        {
-            doctor.currentDialogueMode = NPC.DialogueMode.PlayerInput;
-            playerController.enabled = true;
-        }
-    }
 }
+

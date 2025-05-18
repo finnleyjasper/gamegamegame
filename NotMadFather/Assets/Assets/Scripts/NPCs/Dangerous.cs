@@ -1,3 +1,5 @@
+// for some reason you need to set the enemy's sprite renderer in the inspector... i dont know why
+
 using UnityEngine;
 
 public class Dangerous : SwitchableSprite

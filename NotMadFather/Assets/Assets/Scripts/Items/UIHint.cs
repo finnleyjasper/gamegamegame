@@ -23,6 +23,10 @@ public class UIHint : MonoBehaviour
             PickupItem item = caller.GetComponent<PickupItem>();
             text += "E to pick up " + item.itemData.name;
         }
+        else if (caller.tag == "Dialogue Item")
+        {
+            text += "E to inspect";
+        }
         else if (caller.tag == "NPC")
         {
             text += "E to speak to";
@@ -47,7 +51,7 @@ public class UIHint : MonoBehaviour
         }
         else if (caller.tag == "Interaction")
         {
-            InteractSpot interact = caller.GetComponent<InteractSpot>();
+            InteractableItem interact = caller.GetComponent<InteractableItem>();
 
             if (isSuccessful)
             {

@@ -8,6 +8,7 @@ TagManager:
   - Item
   - NPC
   - Interaction
+  - Dialogue Item
   layers:
   - Default
   - TransparentFX
