@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private NoticedControl noticedControl;
 
-    private Vector2 startingPosition;
+    public Vector2 startingPosition;
 
     private bool isAlive = true;
 

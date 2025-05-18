@@ -12,7 +12,7 @@ public class WaypointController : TopDownController
     private int currentWaypointIndex;
 
     [Header("Enemy Settings")]
-    public bool isEnemy = false;
+    public bool isEnemy;
     public float detectionRange = 2f;
     public LayerMask playerLayer;
     public LayerMask obstructionMask;
@@ -31,26 +31,35 @@ public class WaypointController : TopDownController
         transform.position = waypoints[currentWaypointIndex].transform.position;
 
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
+
+        if (GetComponent<Dangerous>() != null) // has the enemy script? then its an enemy
+        {
+            isEnemy = true;
+        }
+        else
+        {
+            isEnemy = false;
+        }
     }
 
     void Update()
     {
         if (isEnemy && player != null)
         {
-            if (CanSeePlayer())
-            {
-                isChasing = true;
-                lostTimer = 0f;
-            }
-            else if (isChasing)
-            {
-                lostTimer += Time.deltaTime;
-                if (lostTimer >= lostDuration)
+            if (CanSeePlayer() && !Manager.Instance.medication) // only chase the player in withdrawl world
                 {
-                    isChasing = false; // lost the player
+                    isChasing = true;
                     lostTimer = 0f;
                 }
-            }
+                else if (isChasing)
+                {
+                    lostTimer += Time.deltaTime;
+                    if (lostTimer >= lostDuration)
+                    {
+                        isChasing = false; // lost the player
+                        lostTimer = 0f;
+                    }
+                }
         }
 
         Vector2 movement = isChasing ? FindChaseMovement() : FindMovement();

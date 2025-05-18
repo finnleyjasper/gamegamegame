@@ -30,14 +30,14 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private NPC currentSpeaker;
+    private IDialogueObject currentSpeaker;
 
-    public void StartDialogue(string[] dialogue, NPC npc)
+    public void StartDialogue(string[] dialogue, IDialogueObject dialogueObject)
     {
         currentDialogue = dialogue;
         currentIndex = 0;
         dialogueActive = true;
-        currentSpeaker = npc;
+        currentSpeaker = dialogueObject;
 
         dialogueBox.SetActive(true);
         Time.timeScale = 0f;
@@ -73,5 +73,10 @@ public class DialogueManager : MonoBehaviour
     public bool IsDialogueActive()
     {
         return dialogueActive;
+    }
+
+    public int CurrentIndex
+    {
+        get { return currentIndex; }
     }
 }
