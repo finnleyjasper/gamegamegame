@@ -8,9 +8,11 @@ public class NPC : SwitchableSprite, IDialogueObject
     private float dialogueResetTimer = 0f;
 
     [Header("Dialogue")]
-    [SerializeField] private string[] dialogue; // can copy paste text in the inspector
+    [SerializeField] private string[] dialogue;
 
     private bool playerInRange = false;
+
+    public bool RecentlyFinished => recentlyFinishedDialogue;
 
     void Update()
     {
@@ -60,18 +62,16 @@ public class NPC : SwitchableSprite, IDialogueObject
         }
     }
 
-    public void UpdateDialogue(string[] newDialogue) // give the npc a new set of dialogue
+    public void UpdateDialogue(string[] newDialogue)
     {
         dialogue = newDialogue;
     }
 
-    public string[] Dialogue
-    {
-        get { return dialogue; }
-    }
+    public string[] Dialogue => dialogue;
 
     public void OnDialogueFinished()
     {
+        Debug.Log($"{gameObject.name} finished dialogue.");
         recentlyFinishedDialogue = true;
     }
 
