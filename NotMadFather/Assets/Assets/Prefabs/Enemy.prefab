@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2081694703548978802}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Player
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1197873639118726917}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.75, y: 0.9, z: 0}
+  m_LocalPosition: {x: -7.49, y: 3.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -177,6 +177,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  isEnemy: 1
+  detectionRange: 2
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 8
+  lostDuration: 2
+  patrolSpeed: 1
+  chaseSpeedMultiplier: 2
 --- !u!114 &2081694703548978802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regularSprite: {fileID: -4896621567232051643, guid: a2d4c249fe7d70946a4b9d9f59a2d2fc, type: 3}
   spookySprite: {fileID: 5395813944072511977, guid: 694688adbd8cb7c4797b720e0d0e7e41, type: 3}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &5840263298989094102
 GameObject:
   m_ObjectHideFlags: 0
