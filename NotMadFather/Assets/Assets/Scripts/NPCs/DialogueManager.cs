@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("UI Elements")]
     public GameObject dialogueBox;
+    public TMP_Text speakerName;
     public TMP_Text dialogueText;
 
     private string[] currentDialogue;
@@ -32,12 +33,13 @@ public class DialogueManager : MonoBehaviour
 
     private IDialogueObject currentSpeaker;
 
-    public void StartDialogue(string[] dialogue, IDialogueObject dialogueObject)
+    public void StartDialogue(string[] dialogue, IDialogueObject dialogueObject, string name)
     {
         currentDialogue = dialogue;
         currentIndex = 0;
         dialogueActive = true;
         currentSpeaker = dialogueObject;
+        speakerName.text = name;
 
         dialogueBox.SetActive(true);
         Time.timeScale = 0f;

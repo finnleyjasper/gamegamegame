@@ -56,6 +56,7 @@ public class InteractableItem : SwitchableSprite
     {
         if (collision.gameObject.tag == "Player")
         {
+            UIHint.Instance.ShowHint(false, this.gameObject);
             playerInZone = false;
         }
     }
