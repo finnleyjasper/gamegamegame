@@ -4,12 +4,28 @@ using UnityEngine;
 public class DialogueItem : MonoBehaviour, IDialogueObject
 {
     private bool recentlyFinishedDialogue = false;
+    private float dialogueResetCooldown = 0.2f; // 0.2 seconds delay
+    private float dialogueResetTimer = 0f;
+    public bool RecentlyFinished => recentlyFinishedDialogue;
+
     private bool playerInZone = false;
     [SerializeField] string[] comment;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerInZone && Manager.Instance.state != Manager.GameState.Playable)
+        if (recentlyFinishedDialogue)
+        {
+            dialogueResetTimer += Time.unscaledDeltaTime;
+            if (dialogueResetTimer >= dialogueResetCooldown)
+            {
+                recentlyFinishedDialogue = false;
+                dialogueResetTimer = 0f;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.E)
+        && playerInZone && Manager.Instance.state == Manager.GameState.Playable
+        && !DialogueManager.Instance.IsDialogueActive()
+        && !recentlyFinishedDialogue)
         {
             Speak();
         }
@@ -28,6 +44,7 @@ public class DialogueItem : MonoBehaviour, IDialogueObject
     {
         if (collision.gameObject.tag == "Player")
         {
+            UIHint.Instance.ShowHint(false, this.gameObject);
             playerInZone = false;
         }
     }
@@ -36,12 +53,22 @@ public class DialogueItem : MonoBehaviour, IDialogueObject
     {
         if (!DialogueManager.Instance.IsDialogueActive())
         {
-             DialogueManager.Instance.StartDialogue(comment, this);
+            DialogueManager.Instance.StartDialogue(comment, this, Name());
         }
+    }
+
+    public void UpdateDialogue(string[] newDialogue)
+    {
+        comment = newDialogue;
     }
 
     public void OnDialogueFinished()
     {
         recentlyFinishedDialogue = true;
+    }
+
+    public string Name()
+    {
+        return "You"; // the one "speaking" when interacting with these objects will alwyas be the PC
     }
 }

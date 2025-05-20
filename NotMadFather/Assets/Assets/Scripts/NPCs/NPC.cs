@@ -7,6 +7,8 @@ public class NPC : SwitchableSprite, IDialogueObject
     private float dialogueResetCooldown = 0.2f; // 0.2 seconds delay
     private float dialogueResetTimer = 0f;
 
+    public string characterName;
+
     [Header("Dialogue")]
     [SerializeField] private string[] dialogue;
 
@@ -58,7 +60,7 @@ public class NPC : SwitchableSprite, IDialogueObject
     {
         if (!DialogueManager.Instance.IsDialogueActive())
         {
-            DialogueManager.Instance.StartDialogue(dialogue, this);
+            DialogueManager.Instance.StartDialogue(dialogue, this, Name());
         }
     }
 
@@ -74,5 +76,11 @@ public class NPC : SwitchableSprite, IDialogueObject
         Debug.Log($"{gameObject.name} finished dialogue.");
         recentlyFinishedDialogue = true;
     }
+
+    public string Name()
+    {
+        return characterName;
+    }
+
 
 }

@@ -1,7 +1,6 @@
 /*
 *   LOOPS through a list of waypoints for movement
 *
-*   Sets starting pos as first waypoint
 */
 
 using UnityEngine;
@@ -28,7 +27,6 @@ public class WaypointController : TopDownController
     void Awake()
     {
         currentWaypointIndex = 0;
-        transform.position = waypoints[currentWaypointIndex].transform.position;
 
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
