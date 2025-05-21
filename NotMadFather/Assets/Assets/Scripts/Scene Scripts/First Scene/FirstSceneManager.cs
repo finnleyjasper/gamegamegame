@@ -2,6 +2,7 @@
 using System.Linq;
 using UnityEngine;
 using System.Collections;
+using System.Threading;
 
 public class FirstSceneManager : MonoBehaviour
 {
@@ -13,17 +14,26 @@ public class FirstSceneManager : MonoBehaviour
         TaskOneFinishedDoctorSpeaking,
         SecondCutsceneDialogue,
         SeccondCutsceneDrRun,
-        DoctorHasLeft
+        DoctorHasLeft,
+        EnterWithdrawl,
+        InWithdrawl
     }
     private FirstSceneGameState state = FirstSceneGameState.FirstCutscene;
 
     private Player player;
+    [SerializeField] private NPC playerDialogueControl;
     private AudioSource audioSource;
-    private PlayerController playerController;
     private NPC doctor;
 
+    [Header("Items")]
     [SerializeField] private Bed bed;
+    [SerializeField] private PickupItem key;
+    [SerializeField] private InteractableItem door;
+
+    [Header("Tasks")]
     [SerializeField] private WaypointTask taskOne;
+    [SerializeField] private QTEInteractableItem taskTwo;
+
 
     [SerializeField] private AudioClip alarm;
 
@@ -33,21 +43,25 @@ public class FirstSceneManager : MonoBehaviour
         doctor = GameObject.Find("Doctor").GetComponent<NPC>();
 
         player = GameObject.Find("Player").GetComponent<Player>();
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerDialogueControl = GameObject.Find("PlayerDialogueControl").GetComponent<NPC>();
 
         Vector3 fixedCameraPos = new Vector3(8.45f, -2.5f, -10.0f);
         Manager.Instance.SetCutscene(true, fixedCameraPos);
 
+        bed.GetComponent<DialogueItem>().enabled = false;
         doctor.GetComponent<WaypointController>().enabled = false;
         doctor.Speak();
-        bed = GameObject.Find("Bed").GetComponent<Bed>();
-        bed.gameObject.GetComponent<DialogueItem>().enabled = false;
+
+        key.gameObject.SetActive(false);
+        door.enabled = false;
+        playerDialogueControl.gameObject.SetActive(false);
     }
 
     void Update()
     {
         CheckState();
 
+        // show initial presss E dialogue hint
         if (state == FirstSceneGameState.FirstCutscene)
         {
             if (DialogueManager.Instance.CurrentIndex == 0)
@@ -59,6 +73,12 @@ public class FirstSceneManager : MonoBehaviour
                 UIHint.Instance.ShowHint(false, doctor.gameObject);
             }
         }
+
+        // turn off QTE
+        if (state == FirstSceneGameState.TaskOne && taskTwo.successful)
+        {
+            taskTwo.gameObject.SetActive(false);
+        }
     }
 
     public void CheckState()
@@ -66,9 +86,9 @@ public class FirstSceneManager : MonoBehaviour
         //  first cutscene -> task one
         if (!DialogueManager.Instance.IsDialogueActive() && state == FirstSceneGameState.FirstCutscene)
         {
+            bed.GetComponent<DialogueItem>().enabled = true;
             state = FirstSceneGameState.TaskOne;
             doctor.GetComponent<CircleCollider2D>().radius = 0.5f;
-            StartCoroutine(ActivateBed());
 
             string[] newDialogue = {
             "\"I understand you're having trouble with your memory.\"",
@@ -80,10 +100,11 @@ public class FirstSceneManager : MonoBehaviour
 
         }
         // player finished tasks, talk to dr
-        else if (state == FirstSceneGameState.TaskOne && taskOne.isComplete)
+        else if (state == FirstSceneGameState.TaskOne && taskOne.isComplete && taskTwo.successful)
         {
             bed.gameObject.GetComponent<DialogueItem>().enabled = false; // keep accidently getting bed dialogue
             state = FirstSceneGameState.TaskOneFinished;
+            // qte was for somereason broken just accept this jankness
             string[] newDialogue = {
             "\"Thank you for completing your tests. You seem to be doing well.\"",
             "\"It is now time for you medici-\"",};
@@ -119,6 +140,8 @@ public class FirstSceneManager : MonoBehaviour
         else if (!DialogueManager.Instance.IsDialogueActive() && state == FirstSceneGameState.SecondCutsceneDialogue)
         {
             state = FirstSceneGameState.SeccondCutsceneDrRun;
+            player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+            doctor.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             doctor.GetComponent<WaypointController>().enabled = true;
         }
         // dr has left the room, resume control to the player
@@ -126,7 +149,7 @@ public class FirstSceneManager : MonoBehaviour
         {
 
             float distanceToWaypoint = Vector2.Distance(doctor.transform.position, doctor.GetComponent<WaypointController>().waypoints[0].position);
-            if (distanceToWaypoint < 1)
+            if (distanceToWaypoint < 1) // give control back to the player after dr actually left
             {
                 GameObject.Find("Manager").GetComponent<AudioSource>().volume = 0.75f;
                 audioSource.Stop();
@@ -135,15 +158,47 @@ public class FirstSceneManager : MonoBehaviour
                 state = FirstSceneGameState.DoctorHasLeft;
                 Manager.Instance.SetCutscene(false, player.transform.position);
                 bed.gameObject.GetComponent<DialogueItem>().enabled = true;
+
+                // start a timer for player to experience withdrawl
+                StartCoroutine(DelayedWithdrawlChange());
             }
+        }
+        // player is free to roam in withdrawl after player dialogue
+        else if (!DialogueManager.Instance.IsDialogueActive() && state == FirstSceneGameState.EnterWithdrawl)
+        {
+            // door turns from dialogue item into an interactable item
+            door.GetComponent<DialogueItem>().enabled = false;
+            door.enabled = true;
+            door.tag = "Interaction";
+
+            Manager.Instance.SetCutscene(false, player.transform.position);
+            key.gameObject.SetActive(true);
+
+            state = FirstSceneGameState.InWithdrawl;
+        }
+        else if (state == FirstSceneGameState.InWithdrawl && door.interactedWith)
+        {
+
         }
 
     }
 
-    private IEnumerator ActivateBed() // deactivate bed for a little after the cutscene finishes so its dialogue doesnt show immidaiytrrluy
+    private void PlayerSpeak()
     {
-        yield return new WaitForSeconds(3f);
-        bed.gameObject.GetComponent<DialogueItem>().enabled = true;
+        playerDialogueControl.gameObject.SetActive(true);
+        playerDialogueControl.Speak();
+        playerDialogueControl.gameObject.SetActive(false);
+    }
+
+    private IEnumerator DelayedWithdrawlChange()
+    {
+        yield return new WaitForSeconds(15f);
+        state = FirstSceneGameState.EnterWithdrawl;
+        player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // player is sliding?
+        Vector3 fixedCameraPos = GameObject.Find("Main Camera").transform.position;
+        Manager.Instance.SetCutscene(true, fixedCameraPos);
+        Manager.Instance.MedicationState(false);
+        PlayerSpeak();
     }
 
 }

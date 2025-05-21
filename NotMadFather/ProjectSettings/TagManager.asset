@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - Interaction
   - Dialogue Item
+  - QTE
   layers:
   - Default
   - TransparentFX

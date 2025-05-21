@@ -1,38 +1,20 @@
+using System.Linq;
 using UnityEngine;
 
-public class QTEInteractableItem : MonoBehaviour
+public class QTEInteractableItem : DialogueItem
 {
     [Header("QTE Trigger")]
     public QTEManager qteManager;
-
-    private bool playerInZone = false;
+    public bool successful;
 
     void Update()
     {
-        if (playerInZone && Input.GetKeyDown(KeyCode.Space))
+        if (playerInZone)
         {
-            if (qteManager != null && !qteManager.IsActive)
+            if (qteManager != null && !qteManager.IsActive && Input.GetKeyDown(KeyCode.Space) && !DialogueManager.Instance.IsDialogueActive())
             {
-                qteManager.StartQTE();
+                qteManager.StartQTE(this);
             }
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            UIHint.Instance.ShowHint(true, this.gameObject);
-            playerInZone = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            UIHint.Instance.ShowHint(false, this.gameObject);
-            playerInZone = false;
         }
     }
 }

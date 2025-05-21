@@ -8,27 +8,37 @@ public class DialogueItem : MonoBehaviour, IDialogueObject
     private float dialogueResetTimer = 0f;
     public bool RecentlyFinished => recentlyFinishedDialogue;
 
-    private bool playerInZone = false;
-    [SerializeField] string[] comment;
+    protected bool playerInZone = false;
+    [SerializeField] protected string[] comment;
 
-    void Update()
+    private void Update()
     {
-        if (recentlyFinishedDialogue)
+        ShouldSpeak();
+    }
+
+    protected bool ShouldSpeak()
+    {
+        if (Manager.Instance.state != Manager.GameState.Cutscene)
         {
-            dialogueResetTimer += Time.unscaledDeltaTime;
-            if (dialogueResetTimer >= dialogueResetCooldown)
+            if (recentlyFinishedDialogue)
             {
-                recentlyFinishedDialogue = false;
-                dialogueResetTimer = 0f;
+                dialogueResetTimer += Time.unscaledDeltaTime;
+                if (dialogueResetTimer >= dialogueResetCooldown)
+                {
+                    recentlyFinishedDialogue = false;
+                    dialogueResetTimer = 0f;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.E)
+            && playerInZone && Manager.Instance.state == Manager.GameState.Playable
+            && !DialogueManager.Instance.IsDialogueActive()
+            && !recentlyFinishedDialogue)
+            {
+                Speak();
+                return true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.E)
-        && playerInZone && Manager.Instance.state == Manager.GameState.Playable
-        && !DialogueManager.Instance.IsDialogueActive()
-        && !recentlyFinishedDialogue)
-        {
-            Speak();
-        }
+        return false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)

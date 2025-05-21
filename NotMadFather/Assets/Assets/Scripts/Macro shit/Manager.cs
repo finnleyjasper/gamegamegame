@@ -25,13 +25,12 @@ public class Manager : MonoBehaviour
     [SerializeField] private TMP_FontAsset normalFont;
 
     [Header("Sound")]
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     [SerializeField] private AudioClip medicationMusic;
     [SerializeField] private AudioClip spookyMusic;
 
     [Header("Other stuff")]
     public Player player;
-    public GameObject dialogueItemContainer; // should contain all dialogue items that need to be disables during a cutscene
 
     void Awake()
     {
@@ -165,24 +164,12 @@ public class Manager : MonoBehaviour
             camera.transform.SetParent(null);
             playerController.enabled = false;
 
-            // disable dialogue items so they cannot be interacted with during a cutscene
-            DialogueItem[] dialogueItems = dialogueItemContainer.GetComponentsInChildren<DialogueItem>();
-            foreach (DialogueItem item in dialogueItems)
-            {
-                item.enabled = false;
-            }
         }
         else
         {
             camera.transform.SetParent(player.transform);
             playerController.enabled = true;
             cameraPosition = new Vector3(cameraPosition.x, cameraPosition.y, -10); // the z axis gets fucked otherwise
-
-            DialogueItem[] dialogueItems = dialogueItemContainer.GetComponentsInChildren<DialogueItem>();
-            foreach (DialogueItem item in dialogueItems)
-            {
-                item.enabled = true;
-            }
         }
 
         camera.transform.position = cameraPosition;

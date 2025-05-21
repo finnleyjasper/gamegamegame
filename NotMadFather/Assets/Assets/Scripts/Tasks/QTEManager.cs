@@ -21,8 +21,11 @@ public class QTEManager : MonoBehaviour
     private int currentIndex = 0;
     private float timer = 0f;
     private bool isActive = false;
+    private QTEInteractableItem currentQTEItem;
 
     public bool IsActive => isActive;
+
+    [SerializeField] AudioClip audioClip;
 
     private KeyCode[] possibleKeys = new KeyCode[]
     {
@@ -32,8 +35,11 @@ public class QTEManager : MonoBehaviour
         KeyCode.RightArrow
     };
 
-    public void StartQTE()
+    public void StartQTE(QTEInteractableItem QTEItem)
     {
+        currentQTEItem = QTEItem;
+        GameObject.Find("Player").GetComponent<PlayerController>().enabled = false;
+
         // Setup
         sequence.Clear();
         currentIndex = 0;
@@ -131,9 +137,18 @@ public class QTEManager : MonoBehaviour
     {
         isActive = false;
         qteUI.SetActive(false);
+        GameObject.Find("Player").GetComponent<PlayerController>().enabled = true;
 
         if (success)
+        {
+            AudioSource audioSource = GameObject.Find("FirstSceneManager").GetComponent<AudioSource>();
+            audioSource.clip = audioClip;
+            audioSource.loop = false;
+            audioSource.Play();
+            currentQTEItem.successful = true;
+
             onSuccess.Invoke();
+        }
         else
             onFailure.Invoke();
     }

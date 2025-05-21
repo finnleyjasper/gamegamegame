@@ -31,9 +31,13 @@ public class UIHint : MonoBehaviour
         {
             text += "E to speak to";
         }
-        else if (caller.tag == "Interaction") // make sure an outcome message isnt showing
+        else if (caller.tag == "Interaction")
         {
             text += "SPACE to use an item";
+        }
+        else if (caller.tag == "QTE")
+        {
+            text += "SPACE to complete test";
         }
 
         hintUI.text = text;
