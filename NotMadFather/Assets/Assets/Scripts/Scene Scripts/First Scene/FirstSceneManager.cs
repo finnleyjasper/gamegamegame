@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using System.Collections;
 using System.Threading;
+using UnityEngine.SceneManagement;
 
 public class FirstSceneManager : MonoBehaviour
 {
@@ -16,12 +17,17 @@ public class FirstSceneManager : MonoBehaviour
         SeccondCutsceneDrRun,
         DoctorHasLeft,
         EnterWithdrawl,
-        InWithdrawl
+        InWithdrawl,
+        DoorUnlocked,
+        PlayerCaught,
+        TalkingToBadDr,
+        PlayerKilled
     }
     private FirstSceneGameState state = FirstSceneGameState.FirstCutscene;
 
     private Player player;
     [SerializeField] private NPC playerDialogueControl;
+    [SerializeField] private NPC badDoctor;
     private AudioSource audioSource;
     private NPC doctor;
 
@@ -36,6 +42,8 @@ public class FirstSceneManager : MonoBehaviour
 
 
     [SerializeField] private AudioClip alarm;
+    [SerializeField] private GameObject panel;
+    private bool keyDialogueDone = false;
 
     void Start()
     {
@@ -55,6 +63,10 @@ public class FirstSceneManager : MonoBehaviour
         key.gameObject.SetActive(false);
         door.enabled = false;
         playerDialogueControl.gameObject.SetActive(false);
+
+        badDoctor.gameObject.SetActive(false);
+
+        panel.gameObject.SetActive(false);
     }
 
     void Update()
@@ -78,6 +90,15 @@ public class FirstSceneManager : MonoBehaviour
         if (state == FirstSceneGameState.TaskOne && taskTwo.successful)
         {
             taskTwo.gameObject.SetActive(false);
+        }
+
+        // dialogue when key picked up
+        if (state == FirstSceneGameState.InWithdrawl && !keyDialogueDone && player.GetComponent<PlayerInventory>().ContainsItem(key.itemData))
+        {
+            string[] newDialogue = { "\"This looks familar...\"" };
+            playerDialogueControl.UpdateDialogue(newDialogue);
+            Invoke("PlayerSpeak", 0.45f);
+            keyDialogueDone = true;
         }
     }
 
@@ -173,14 +194,57 @@ public class FirstSceneManager : MonoBehaviour
 
             Manager.Instance.SetCutscene(false, player.transform.position);
             key.gameObject.SetActive(true);
+            badDoctor.gameObject.SetActive(true);
 
             state = FirstSceneGameState.InWithdrawl;
         }
+        // unlock door
         else if (state == FirstSceneGameState.InWithdrawl && door.interactedWith)
         {
-
+            door.GetComponent<Collider2D>().enabled = false;
+            state = FirstSceneGameState.DoorUnlocked;
         }
+        // wait for player to walk into bad dr range
+        else if (state == FirstSceneGameState.DoorUnlocked)
+        {
+            if (badDoctor.GetComponent<WaypointController>().CanSeePlayer())
+            {
+                Vector3 fixedCameraPos = GameObject.Find("Main Camera").transform.position;
+                Manager.Instance.SetCutscene(true, fixedCameraPos);
+                badDoctor.Speak();
+                state = FirstSceneGameState.TalkingToBadDr;
+            }
+        }
+        // dr rush for player after dialogue
+        else if (!DialogueManager.Instance.IsDialogueActive() && state == FirstSceneGameState.TalkingToBadDr)
+        {
+            badDoctor.GetComponent<NPC>().enabled = false;
+            badDoctor.GetComponent<Dangerous>().enabled = true;
+            badDoctor.GetComponent<WaypointController>().waypoints[0] = player.transform;
+            badDoctor.GetComponent<WaypointController>().patrolSpeed = 6f;
 
+            if (player.GetComponent<NoticedControl>().eyesRemaining < 3)
+            {
+                foreach (Eye eye in player.GetComponent<NoticedControl>().eyes)
+                {
+                    if (!eye.isOpen)
+                    {
+                        eye.Open();
+                    }
+                }
+                badDoctor.GetComponent<Dangerous>().enabled = false;
+                doctor.GetComponent<WaypointController>().enabled = false;
+                player.audioSource.Play();
+
+                state = FirstSceneGameState.PlayerKilled;
+            }
+        }
+        else if (state == FirstSceneGameState.PlayerKilled)
+        {
+            panel.gameObject.SetActive(true);
+            doctor.gameObject.SetActive(false);
+            StartCoroutine(DelayedSecondScene());
+        }
     }
 
     private void PlayerSpeak()
@@ -192,13 +256,20 @@ public class FirstSceneManager : MonoBehaviour
 
     private IEnumerator DelayedWithdrawlChange()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(3f);
         state = FirstSceneGameState.EnterWithdrawl;
         player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // player is sliding?
         Vector3 fixedCameraPos = GameObject.Find("Main Camera").transform.position;
         Manager.Instance.SetCutscene(true, fixedCameraPos);
         Manager.Instance.MedicationState(false);
         PlayerSpeak();
+    }
+
+    private IEnumerator DelayedSecondScene()
+    {
+        yield return new WaitForSeconds(2f);
+        Debug.Log("Move to second scene");
+        SceneManager.LoadScene("SecondScene");
     }
 
 }

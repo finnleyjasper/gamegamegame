@@ -4,7 +4,7 @@ using System.Collections;
 
 public class NoticedControl : MonoBehaviour
 {
-    [SerializeField] Eye[] eyes;
+    public Eye[] eyes;
     public int eyesRemaining;
     private int nextEyeIndex = 0;
 

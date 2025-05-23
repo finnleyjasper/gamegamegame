@@ -27,17 +27,8 @@ public class WaypointController : TopDownController
     void Awake()
     {
         currentWaypointIndex = 0;
-
+        CheckIfEnemy();
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
-
-        if (GetComponent<Dangerous>() != null) // has the enemy script? then its an enemy
-        {
-            isEnemy = true;
-        }
-        else
-        {
-            isEnemy = false;
-        }
     }
 
     void Update()
@@ -45,19 +36,19 @@ public class WaypointController : TopDownController
         if (isEnemy && player != null)
         {
             if (CanSeePlayer() && !Manager.Instance.medication) // only chase the player in withdrawl world
+            {
+                isChasing = true;
+                lostTimer = 0f;
+            }
+            else if (isChasing)
+            {
+                lostTimer += Time.deltaTime;
+                if (lostTimer >= lostDuration)
                 {
-                    isChasing = true;
+                    isChasing = false; // lost the player
                     lostTimer = 0f;
                 }
-                else if (isChasing)
-                {
-                    lostTimer += Time.deltaTime;
-                    if (lostTimer >= lostDuration)
-                    {
-                        isChasing = false; // lost the player
-                        lostTimer = 0f;
-                    }
-                }
+            }
         }
 
         Vector2 movement = isChasing ? FindChaseMovement() : FindMovement();
@@ -79,7 +70,7 @@ public class WaypointController : TopDownController
 
             if (distanceToWaypoint < 0.5f) // if reached the next waypoint, move on to next
             {
-                currentWaypointIndex  = (currentWaypointIndex + 1) % waypoints.Length;
+                currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
             }
         }
     }
@@ -119,7 +110,7 @@ public class WaypointController : TopDownController
         return movement;
     }
 
-    private bool CanSeePlayer()
+    public bool CanSeePlayer()
     {
         Vector2 dirToPlayer = player.position - transform.position;
 
@@ -145,6 +136,18 @@ public class WaypointController : TopDownController
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, detectionRange);
+        }
+    }
+
+    public void CheckIfEnemy()
+    {
+        if (GetComponent<Dangerous>() != null) // has the enemy script? then its an enemy
+        {
+            isEnemy = true;
+        }
+        else
+        {
+            isEnemy = false;
         }
     }
 

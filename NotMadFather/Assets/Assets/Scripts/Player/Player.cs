@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     private NoticedControl noticedControl;
 
     public Vector2 startingPosition;
+    public AudioSource audioSource;
 
     private bool isAlive = true;
 
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
         controller = gameObject.GetComponent<PlayerController>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         noticedControl = gameObject.GetComponent<NoticedControl>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     public void BeNoticed()
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour
             isAlive = false;
             spriteRenderer.enabled = false;
             controller.enabled = false;
+            audioSource.Play();
             // empty inventory?
             // probably other stuff here too
         }

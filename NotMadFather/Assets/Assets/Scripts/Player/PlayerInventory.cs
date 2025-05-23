@@ -35,7 +35,7 @@ public class PlayerInventory : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             isOpen = !isOpen;
             inventoryPanel.SetActive(isOpen);
@@ -69,7 +69,8 @@ public class PlayerInventory : MonoBehaviour
                 {
                     equippedItem = noneItem;
                     Debug.Log("Unequipped item:" + items[selectedIndex].itemName);
-;                }
+                    ;
+                }
                 else  // equip the selected item
                 {
                     equippedItem = items[selectedIndex];
@@ -116,5 +117,10 @@ public class PlayerInventory : MonoBehaviour
             equippedItemText.text = equippedItem ? "Equipped: " + equippedItem.itemName : "Equipped: None";
             equippedItemImage.sprite = equippedItem ? equippedItem.icon : equippedItemImage.sprite = noneItem.icon;
         }
+    }
+
+    public bool ContainsItem(ItemData item)
+    {
+        return items.Contains(item);
     }
 }
