@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 95a637eba8c4945039354959be9ea19d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8094140534225610036
+    second: task 1_0
+  - first:
+      213: 4630684400739011638
+    second: task 1_1
+  - first:
+      213: 7798856522769093899
+    second: task 1_2
+  - first:
+      213: -7717674852571399557
+    second: task 1_3
+  - first:
+      213: -2933510079664288146
+    second: task 1_4
+  - first:
+      213: -5078373271585883535
+    second: task 1_5
+  - first:
+      213: 1414838101790144721
+    second: task 1_6
+  - first:
+      213: 8304979114287736476
+    second: task 1_7
+  - first:
+      213: 4820238315349923866
+    second: task 1_8
+  - first:
+      213: -6834380291107171420
+    second: task 1_9
+  - first:
+      213: 613015230907260125
+    second: task 1_10
+  - first:
+      213: -8906398894581494646
+    second: task 1_11
+  - first:
+      213: -4103676090071801698
+    second: task 1_12
+  - first:
+      213: 5617924612609908831
+    second: task 1_13
+  - first:
+      213: 2377025239488100100
+    second: task 1_14
+  - first:
+      213: 6800127153623739141
+    second: task 1_15
+  - first:
+      213: 5546495832106563856
+    second: task 1_16
+  - first:
+      213: 5529481721436531048
+    second: task 1_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: task 1_0
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 71
+        width: 731
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cca54679116dbaf80800000000000000
+      internalID: -8094140534225610036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_1
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 117
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ccdf49dee734040800000000000000
+      internalID: 4630684400739011638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_2
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 119
+        width: 25
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b05d3e5ffaa1b3c60800000000000000
+      internalID: 7798856522769093899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_3
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 120
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7a34809c9f45e490800000000000000
+      internalID: -7717674852571399557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_4
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 121
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6e059cff141a47d0800000000000000
+      internalID: -2933510079664288146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_5
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 122
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17af8467a6ef589b0800000000000000
+      internalID: -5078373271585883535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_6
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 122
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d8b3e7e1c382a310800000000000000
+      internalID: 1414838101790144721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_7
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 122
+        width: 24
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c96a826b086314370800000000000000
+      internalID: 8304979114287736476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_8
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 123
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a18d827853de4e240800000000000000
+      internalID: 4820238315349923866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_9
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 124
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a350a8d5576721a0800000000000000
+      internalID: -6834380291107171420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_10
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 125
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc9128ca1ed18800800000000000000
+      internalID: 613015230907260125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_11
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 126
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8cc98cb46d166480800000000000000
+      internalID: -8906398894581494646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_12
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 126
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e90a10a9650dc07c0800000000000000
+      internalID: -4103676090071801698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_13
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 127
+        width: 24
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f50a98d8ba0e6fd40800000000000000
+      internalID: 5617924612609908831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_14
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 128
+        width: 25
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40773dd7cd3ecf020800000000000000
+      internalID: 2377025239488100100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_15
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 129
+        width: 38
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50b2b3b1e97ee5e50800000000000000
+      internalID: 6800127153623739141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_16
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 116
+        width: 27
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01975ec929c19fc40800000000000000
+      internalID: 5546495832106563856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: task 1_17
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 116
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8696d36445aacbc40800000000000000
+      internalID: 5529481721436531048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d7b68b44898d14580a1aff0f2c63eee4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      task 1_0: -8094140534225610036
+      task 1_1: 4630684400739011638
+      task 1_10: 613015230907260125
+      task 1_11: -8906398894581494646
+      task 1_12: -4103676090071801698
+      task 1_13: 5617924612609908831
+      task 1_14: 2377025239488100100
+      task 1_15: 6800127153623739141
+      task 1_16: 5546495832106563856
+      task 1_17: 5529481721436531048
+      task 1_2: 7798856522769093899
+      task 1_3: -7717674852571399557
+      task 1_4: -2933510079664288146
+      task 1_5: -5078373271585883535
+      task 1_6: 1414838101790144721
+      task 1_7: 8304979114287736476
+      task 1_8: 4820238315349923866
+      task 1_9: -6834380291107171420
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

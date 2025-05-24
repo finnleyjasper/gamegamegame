@@ -11,7 +11,7 @@ public class WaypointScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (waypointTask.counter < 6)
+        if (waypointTask.counter < 6 && collision.gameObject.tag == "Player")
         {
             waypointTask.counter++;
         }
