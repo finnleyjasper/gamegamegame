@@ -33,7 +33,7 @@ public class UIHint : MonoBehaviour
         }
         else if (caller.tag == "Interaction")
         {
-            text += "SPACE to use an item";
+            text += "SPACE to use item";
         }
         else if (caller.tag == "QTE")
         {
@@ -63,7 +63,7 @@ public class UIHint : MonoBehaviour
             }
             else
             {
-                text = "You don't have the right item equipped...";
+                text = "That didn't work...";
             }
         }
 

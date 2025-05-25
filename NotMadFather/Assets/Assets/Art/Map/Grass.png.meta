@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a6db17a48472540c98d32298dc9d02bc
+guid: 413f8f85b91ab476ca0c11e6a8c84495
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5758687117858881331
-    second: empty_hand_0
+      213: 1991730676756332257
+    second: flooring_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: empty_hand_0
+      name: flooring_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 5
-        width: 241
-        height: 245
+        x: 1062
+        y: 0
+        width: 1568
+        height: 1896
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33fb8904c67faef40800000000000000
-      internalID: 5758687117858881331
+      spriteID: 1ee3f447f7c04ab10800000000000000
+      internalID: 1991730676756332257
       vertices: []
       indices: 
       edges: []
@@ -151,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f17411ae485744651803c5e7da7b2ea9
+    spriteID: 6d066d347b6b54c07ae463abe8e1417e
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      empty_hand_0: 5758687117858881331
+      flooring_0: 1991730676756332257
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

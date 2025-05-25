@@ -10,6 +10,7 @@ public class WaypointTask : MonoBehaviour
     public bool isComplete;
     [SerializeField] AudioClip successClip;
     private bool clipPlayed;
+    [SerializeField] string sceneManager;
 
     void Update()
     {
@@ -23,7 +24,7 @@ public class WaypointTask : MonoBehaviour
 
             if (!clipPlayed)
             {
-                AudioSource audioSource = GameObject.Find("FirstSceneManager").GetComponent<AudioSource>();
+                AudioSource audioSource = GameObject.Find(sceneManager).GetComponent<AudioSource>();
                 audioSource.clip = successClip;
                 audioSource.loop = false;
 

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: a6db17a48472540c98d32298dc9d02bc
+guid: 2cf896d3e07db4b3db701acdba39269a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5758687117858881331
-    second: empty_hand_0
+      213: -4312954025580549000
+    second: eye_closed_0
+  - first:
+      213: -6078453595962431562
+    second: eye_closed_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +99,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: empty_hand_0
+      name: eye_closed_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 5
-        width: 241
-        height: 245
+        x: 1595
+        y: 1976
+        width: 341
+        height: 221
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33fb8904c67faef40800000000000000
-      internalID: 5758687117858881331
+      spriteID: 87c2eac2a2f4524c0800000000000000
+      internalID: -4312954025580549000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye_closed_1
+      rect:
+        serializedVersion: 2
+        x: 1653
+        y: 2046
+        width: 284
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b7a6f4d8aef4aba0800000000000000
+      internalID: -6078453595962431562
       vertices: []
       indices: 
       edges: []
@@ -151,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f17411ae485744651803c5e7da7b2ea9
+    spriteID: ae35fe76b54ae4698a17e1605c275c6d
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      empty_hand_0: 5758687117858881331
+      eye_closed_0: -4312954025580549000
+      eye_closed_1: -6078453595962431562
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

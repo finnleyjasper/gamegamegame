@@ -139,7 +139,9 @@ public class Manager : MonoBehaviour
 
         UIHint.Instance.UpdateFont(font);
         TMP_Text dialogText = gameObject.GetComponent<DialogueManager>().dialogueText;
+        TMP_Text dialogNameText = gameObject.GetComponent<DialogueManager>().speakerName;
         dialogText.font = font;
+        dialogNameText.font = font;
     }
 
     private void UpdateSprites(bool medication) // ie.. true == medication taken

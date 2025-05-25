@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8c2e0d96aaa70c41a1ee2f60780e037, type: 3}
-  m_Name: Medication
+  m_Name: Soup
   m_EditorClassIdentifier: 
-  itemName: Medication
-  icon: {fileID: 5924819632780158498, guid: d1019a039ceebbc43b6ea1ddd42c24c5, type: 3}
+  itemName: Soup
+  icon: {fileID: -7596312157407593607, guid: 84defb5be9a204085a1a58622b3061cd, type: 3}

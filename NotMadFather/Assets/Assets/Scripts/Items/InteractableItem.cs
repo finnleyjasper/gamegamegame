@@ -30,7 +30,7 @@ public class InteractableItem : SwitchableSprite
                     interactedWith = true;
                     audioSource.clip = success;
                     audioSource.Play();
-                    player.RemoveItem(requiredItem);
+                    // player.RemoveItem(requiredItem);
                     UIHint.Instance.ShowOutcome(this.gameObject, true);
                     // Destroy(this.gameObject) -- depends on the item? some will need to delete themselves
                 }

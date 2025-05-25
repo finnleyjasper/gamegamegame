@@ -23,6 +23,8 @@ public class QTEManager : MonoBehaviour
     private bool isActive = false;
     private QTEInteractableItem currentQTEItem;
 
+    [SerializeField] string sceneManager;
+
     public bool IsActive => isActive;
 
     [SerializeField] AudioClip audioClip;
@@ -110,7 +112,7 @@ public class QTEManager : MonoBehaviour
         {
             if (i < currentIndex)
             {
-                display += $"<color=green>{ArrowKeyToSymbol(sequence[i])}</color> ";
+                display += $"<color=yellow>{ArrowKeyToSymbol(sequence[i])}</color> ";
             }
             else
             {
@@ -141,7 +143,7 @@ public class QTEManager : MonoBehaviour
 
         if (success)
         {
-            AudioSource audioSource = GameObject.Find("FirstSceneManager").GetComponent<AudioSource>();
+            AudioSource audioSource = GameObject.Find(sceneManager).GetComponent<AudioSource>();
             audioSource.clip = audioClip;
             audioSource.loop = false;
             audioSource.Play();

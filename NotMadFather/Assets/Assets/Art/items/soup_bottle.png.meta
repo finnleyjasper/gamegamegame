@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: a6db17a48472540c98d32298dc9d02bc
+guid: 84defb5be9a204085a1a58622b3061cd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5758687117858881331
-    second: empty_hand_0
+      213: -7596312157407593607
+    second: soup_bottle_0
+  - first:
+      213: -8025670794554779211
+    second: soup_bottle_1
+  - first:
+      213: -6727226569858892429
+    second: soup_bottle_2
+  - first:
+      213: 6237992192064524757
+    second: soup_bottle_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,53 +105,93 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: empty_hand_0
+      name: soup_bottle_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 5
-        width: 241
-        height: 245
+        x: 3133
+        y: 472
+        width: 200
+        height: 389
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33fb8904c67faef40800000000000000
-      internalID: 5758687117858881331
+      spriteID: 97b3dbef65a749690800000000000000
+      internalID: -7596312157407593607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soup_bottle_1
+      rect:
+        serializedVersion: 2
+        x: 3384
+        y: 275
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b9d5562fe61f9090800000000000000
+      internalID: -8025670794554779211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soup_bottle_2
+      rect:
+        serializedVersion: 2
+        x: 3030
+        y: 250
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37dbdfbb31714a2a0800000000000000
+      internalID: -6727226569858892429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soup_bottle_3
+      rect:
+        serializedVersion: 2
+        x: 3058
+        y: 228
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d19aaf29dcc19650800000000000000
+      internalID: 6237992192064524757
       vertices: []
       indices: 
       edges: []
@@ -151,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f17411ae485744651803c5e7da7b2ea9
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +209,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      empty_hand_0: 5758687117858881331
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -87,7 +87,7 @@ public class FirstSceneManager : MonoBehaviour
         // turn off QTE
         if (state == FirstSceneGameState.TaskOne && taskTwo.successful)
         {
-            taskTwo.gameObject.SetActive(false);
+            taskTwo.enabled = false;
         }
 
         // dialogue when key picked up
@@ -106,7 +106,7 @@ public class FirstSceneManager : MonoBehaviour
         if (!DialogueManager.Instance.IsDialogueActive() && state == FirstSceneGameState.FirstCutscene)
         {
             state = FirstSceneGameState.TaskOne;
-            doctor.GetComponent<CircleCollider2D>().radius = 0.5f;
+            doctor.GetComponent<CircleCollider2D>().radius = 4f;
 
             string[] newDialogue = {
             "\"I understand you're having trouble with your memory.\"",
@@ -179,6 +179,7 @@ public class FirstSceneManager : MonoBehaviour
                 Manager.Instance.SetCutscene(false, player.transform.position);
 
                 // start a timer for player to experience withdrawl
+                Debug.Log("should start coroutine");
                 StartCoroutine(DelayedWithdrawlChange());
             }
         }
@@ -200,7 +201,7 @@ public class FirstSceneManager : MonoBehaviour
         // unlock door
         else if (state == FirstSceneGameState.InWithdrawl && door.interactedWith)
         {
-            door.gameObject.SetActive(false);
+            StartCoroutine(DelayDoor());
             state = FirstSceneGameState.DoorUnlocked;
         }
         // wait for player to walk into bad dr range
@@ -220,7 +221,7 @@ public class FirstSceneManager : MonoBehaviour
             badDoctor.GetComponent<NPC>().enabled = false;
             badDoctor.GetComponent<Dangerous>().enabled = true;
             badDoctor.GetComponent<WaypointController>().waypoints[0] = player.transform;
-            badDoctor.GetComponent<WaypointController>().patrolSpeed = 6f;
+            badDoctor.GetComponent<WaypointController>().patrolSpeed = 10f;
 
             if (player.GetComponent<NoticedControl>().eyesRemaining < 3)
             {
@@ -240,6 +241,7 @@ public class FirstSceneManager : MonoBehaviour
         }
         else if (state == FirstSceneGameState.PlayerKilled)
         {
+            badDoctor.gameObject.SetActive(false);
             panel.gameObject.SetActive(true);
             doctor.gameObject.SetActive(false);
             StartCoroutine(DelayedSecondScene());
@@ -248,6 +250,7 @@ public class FirstSceneManager : MonoBehaviour
 
     private void PlayerSpeak()
     {
+        Debug.Log("Player should speak");
         playerDialogueControl.gameObject.SetActive(true);
         playerDialogueControl.Speak();
         playerDialogueControl.gameObject.SetActive(false);
@@ -256,19 +259,25 @@ public class FirstSceneManager : MonoBehaviour
     private IEnumerator DelayedWithdrawlChange()
     {
         yield return new WaitForSeconds(5f);
-        state = FirstSceneGameState.EnterWithdrawl;
         player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // player is sliding?
         Vector3 fixedCameraPos = GameObject.Find("Main Camera").transform.position;
         Manager.Instance.SetCutscene(true, fixedCameraPos);
         Manager.Instance.MedicationState(false);
         PlayerSpeak();
+        state = FirstSceneGameState.EnterWithdrawl;
     }
 
     private IEnumerator DelayedSecondScene()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         Debug.Log("Move to second scene");
         SceneManager.LoadScene("SecondScene");
+    }
+
+    private IEnumerator DelayDoor()
+    {
+        yield return new WaitForSeconds(0.4f);
+        door.gameObject.SetActive(false);
     }
 
 }

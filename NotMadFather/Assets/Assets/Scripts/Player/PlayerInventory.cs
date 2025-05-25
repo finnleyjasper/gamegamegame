@@ -13,7 +13,7 @@ public class PlayerInventory : MonoBehaviour
     public GameObject inventoryPanel;
     public TextMeshProUGUI inventoryText;
     public TextMeshProUGUI equippedItemText;
-    public UnityEngine.UI.Image equippedItemImage;
+    public SpriteRenderer equippedItemImage;
 
     [Header("Inventory")]
     public List<ItemData> items = new List<ItemData>();
