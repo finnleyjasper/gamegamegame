@@ -2788,13 +2788,13 @@ PrefabInstance:
       addedObject: {fileID: 736239568}
     - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 736239572}
-    - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 736239573}
     - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 736239575}
+    - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 736239577}
   m_SourcePrefab: {fileID: 100100000, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
 --- !u!1001 &600513061
 PrefabInstance:
@@ -3009,6 +3009,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.923881, y: 0.352825}
   m_EdgeRadius: 0
+--- !u!114 &615703169 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+  m_PrefabInstance: {fileID: 175507633}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615703165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1156826a90457459cbd4c4aea5eebb1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3170,6 +3181,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638493455}
   m_CullTransparentMesh: 1
+--- !u!1 &654557860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 654557861}
+  m_Layer: 0
+  m_Name: Waypoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &654557861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654557860}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5712055, y: -0.059462577, z: -0.047925122}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1944324292}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &662692715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3498,7 +3541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1518726132212284534, guid: 35245aae8e998c74987166b00903bbe2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1518726132212284534, guid: 35245aae8e998c74987166b00903bbe2, type: 3}
       propertyPath: m_TagString
@@ -3662,25 +3705,6 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4012474368826534075, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
   m_PrefabInstance: {fileID: 592851011}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &736239572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736239566}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11fee6acc7b1141189f79cd4c45ecdc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  regularSprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
-  spookySprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
-  spriteRenderer: {fileID: 736239571}
-  requiredItem: {fileID: 11400000, guid: 7e8f1d5f89b89485c86ac9697150791c, type: 2}
-  interactedWith: 0
-  success: {fileID: 8300000, guid: eedc03704186cd9438143a7edfd6f006, type: 3}
-  wrongItem: {fileID: 8300000, guid: 156a35d20e39b4a5d95c93d49e9d812e, type: 3}
 --- !u!82 &736239573
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3824,6 +3848,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.48, y: 0.36}
   m_EdgeRadius: 0
+--- !u!114 &736239577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736239566}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e33454e3bafa47ad895f2a69fdc66dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regularSprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
+  spookySprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
+  spriteRenderer: {fileID: 736239571}
+  requiredItem: {fileID: 11400000, guid: 7e8f1d5f89b89485c86ac9697150791c, type: 2}
+  interactedWith: 0
+  success: {fileID: 8300000, guid: eedc03704186cd9438143a7edfd6f006, type: 3}
+  wrongItem: {fileID: 8300000, guid: 156a35d20e39b4a5d95c93d49e9d812e, type: 3}
 --- !u!1 &752344312
 GameObject:
   m_ObjectHideFlags: 0
@@ -4863,7 +4906,7 @@ PrefabInstance:
       objectReference: {fileID: 7569196456447642212, guid: dfb187f339845473e8c2d825b11e7ac1, type: 3}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: comment.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[0]'
@@ -4871,7 +4914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[1]'
-      value: 
+      value: '"I think my key will fit in here..."'
       objectReference: {fileID: 0}
     - target: {fileID: 8321712302836750539, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -5252,6 +5295,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8667466294985060184, guid: f83255e2a69184bdc843cce0587e0dcd, type: 3}
+    - target: {fileID: 4012474368826534075, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012474368826534075, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2018730927
+      objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: comment.Array.size
       value: 2
@@ -5384,9 +5435,9 @@ EdgeCollider2D:
   - {x: -1.9618596, y: -1.3134403}
   - {x: -3.338015, y: -2.3188527}
   - {x: -3.5669465, y: -2.8951538}
-  - {x: -3.6264434, y: -3.412723}
-  - {x: -2.381661, y: -4.536529}
-  - {x: 1.2723272, y: -4.6591506}
+  - {x: -3.5273893, y: -2.8926907}
+  - {x: -2.6045322, y: -4.437476}
+  - {x: 1.1237464, y: -4.7086773}
   - {x: 2.314478, y: -4.465151}
   - {x: 4.0553045, y: -3.126552}
   - {x: 2.7962658, y: -1.9645758}
@@ -6470,6 +6521,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: comment.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -6546,13 +6601,13 @@ PrefabInstance:
       addedObject: {fileID: 1404864781}
     - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1404864780}
-    - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1404864779}
     - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1404864778}
+    - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1404864783}
   m_SourcePrefab: {fileID: 100100000, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
 --- !u!4 &1404864775 stripped
 Transform:
@@ -6562,11 +6617,6 @@ Transform:
 --- !u!1 &1404864776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
-  m_PrefabInstance: {fileID: 1404864774}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1404864777 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4012474368826534075, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
   m_PrefabInstance: {fileID: 1404864774}
   m_PrefabAsset: {fileID: 0}
 --- !u!61 &1404864778
@@ -6712,25 +6762,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1404864780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404864776}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11fee6acc7b1141189f79cd4c45ecdc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  regularSprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
-  spookySprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
-  spriteRenderer: {fileID: 1404864777}
-  requiredItem: {fileID: 11400000, guid: 7e8f1d5f89b89485c86ac9697150791c, type: 2}
-  interactedWith: 0
-  success: {fileID: 8300000, guid: eedc03704186cd9438143a7edfd6f006, type: 3}
-  wrongItem: {fileID: 8300000, guid: 156a35d20e39b4a5d95c93d49e9d812e, type: 3}
 --- !u!61 &1404864781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6777,6 +6808,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.82030654, y: 0.7558041}
   m_EdgeRadius: 0
+--- !u!114 &1404864783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404864776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e33454e3bafa47ad895f2a69fdc66dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regularSprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
+  spookySprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
+  spriteRenderer: {fileID: 736239571}
+  requiredItem: {fileID: 11400000, guid: 7e8f1d5f89b89485c86ac9697150791c, type: 2}
+  interactedWith: 0
+  success: {fileID: 8300000, guid: eedc03704186cd9438143a7edfd6f006, type: 3}
+  wrongItem: {fileID: 8300000, guid: 156a35d20e39b4a5d95c93d49e9d812e, type: 3}
 --- !u!1 &1408016454
 GameObject:
   m_ObjectHideFlags: 0
@@ -6870,7 +6920,7 @@ PrefabInstance:
       objectReference: {fileID: -8667466294985060184, guid: f83255e2a69184bdc843cce0587e0dcd, type: 3}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: comment.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[0]'
@@ -6878,7 +6928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[1]'
-      value: '"They won''t be happy about it being dumped here.""'
+      value: '"What''s hidden under these rocks...?"'
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[2]'
@@ -7460,11 +7510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[0]'
-      value: '"No food yet..."'
+      value: '"This room is a  mess."'
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[1]'
-      value: '"No food yet..."'
+      value: '"This room is a  mess."'
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[2]'
@@ -7661,7 +7711,7 @@ Transform:
   m_GameObject: {fileID: 1507081763}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 4.26, y: 2.77, z: 0}
+  m_LocalPosition: {x: 4.73, y: 1.92, z: 0}
   m_LocalScale: {x: 0.3800401, y: 0.3800401, z: 0.3800401}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7900,7 +7950,7 @@ GameObject:
   - component: {fileID: 1573285194}
   - component: {fileID: 1573285193}
   - component: {fileID: 1573285195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8107,8 +8157,8 @@ EdgeCollider2D:
   - {x: -9.578263, y: -5.10951}
   - {x: -9.540645, y: -5.9385643}
   - {x: -7.749859, y: -5.9479723}
-  - {x: -7.660573, y: -8.301751}
-  - {x: -7.4532995, y: -8.293725}
+  - {x: -7.660573, y: -6.9311676}
+  - {x: -7.4345245, y: -6.960691}
   - {x: -7.3774085, y: -2.706584}
   - {x: -7.4064713, y: 1.4802012}
   - {x: -7.3263783, y: 8.293965}
@@ -8256,7 +8306,7 @@ PrefabInstance:
       objectReference: {fileID: 7569196456447642212, guid: dfb187f339845473e8c2d825b11e7ac1, type: 3}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: comment.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[0]'
@@ -8264,6 +8314,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[1]'
+      value: '"This door needs a passcode."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+      propertyPath: 'comment.Array.data[2]'
       value: '"My key is no help."'
       objectReference: {fileID: 0}
     - target: {fileID: 8321712302836750539, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
@@ -9033,19 +9087,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: comment.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[0]'
-      value: '"Someone''s laundry..."'
+      value: '"Whose clothes are these?"'
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[1]'
-      value: '"They won''t be happy about it being dumped here.""'
+      value: '"Whose clothes are these?"'
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[2]'
-      value: '"I''ll need to complete my tests first."'
+      value: '"Is that... blood?"'
       objectReference: {fileID: 0}
     - target: {fileID: 8321712302836750539, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -9242,10 +9296,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: comment.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[0]'
+      value: '"This bed is soiled..."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+      propertyPath: 'comment.Array.data[1]'
       value: '"This bed is soiled..."'
       objectReference: {fileID: 0}
     - target: {fileID: 8321712302836750539, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
@@ -9650,10 +9708,10 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1747093420}
   characterName: You
   dialogue:
-  - '"What is happening?"'
-  - '"I don''t feel well..."'
-  - '"..."'
-  - '"What''s that on my tray...?"'
+  - '"What was that?? Was it... real?"'
+  - '"God, my head..."'
+  - '"I still have the key... it must have actually happened."'
+  - '"I have to know what it was..."'
 --- !u!4 &1747093422
 Transform:
   m_ObjectHideFlags: 0
@@ -9669,6 +9727,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1759207761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8608471996189194907, guid: 35245aae8e998c74987166b00903bbe2, type: 3}
+  m_PrefabInstance: {fileID: 680621912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c994afa5e0ae9d4e9bcc8c93c691243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1762549789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9938,7 +10007,7 @@ PrefabInstance:
       objectReference: {fileID: 7569196456447642212, guid: dfb187f339845473e8c2d825b11e7ac1, type: 3}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: comment.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[0]'
@@ -9946,6 +10015,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[1]'
+      value: '"This door needs a passcode."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+      propertyPath: 'comment.Array.data[2]'
       value: '"My key is no help."'
       objectReference: {fileID: 0}
     - target: {fileID: 8321712302836750539, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
@@ -10244,6 +10317,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.82030654, y: 0.7558041}
   m_EdgeRadius: 0
+--- !u!1 &1944324291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1944324292}
+  m_Layer: 0
+  m_Name: Morning Doctor
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1944324292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944324291}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.19, y: -1.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 654557861}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1957346957
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10617,7 +10721,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDialogueControl: {fileID: 1747093421}
   key: {fileID: 1793519296}
-  door: {fileID: 736239572}
+  door: {fileID: 736239577}
+  soup: {fileID: 1759207761}
+  tray: {fileID: 615703169}
   taskOne: {fileID: 1095993429}
   taskTwo: {fileID: 1328328265}
   panel: {fileID: 826143773}
@@ -10746,6 +10852,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: comment.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -10822,13 +10932,13 @@ PrefabInstance:
       addedObject: {fileID: 2058336913}
     - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2058336912}
-    - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2058336911}
     - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2058336910}
+    - targetCorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2058336915}
   m_SourcePrefab: {fileID: 100100000, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
 --- !u!4 &2058336907 stripped
 Transform:
@@ -10838,11 +10948,6 @@ Transform:
 --- !u!1 &2058336908 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1868260131715135882, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
-  m_PrefabInstance: {fileID: 2058336906}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &2058336909 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4012474368826534075, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
   m_PrefabInstance: {fileID: 2058336906}
   m_PrefabAsset: {fileID: 0}
 --- !u!61 &2058336910
@@ -10988,25 +11093,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2058336912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058336908}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11fee6acc7b1141189f79cd4c45ecdc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  regularSprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
-  spookySprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
-  spriteRenderer: {fileID: 2058336909}
-  requiredItem: {fileID: 11400000, guid: 7e8f1d5f89b89485c86ac9697150791c, type: 2}
-  interactedWith: 0
-  success: {fileID: 8300000, guid: eedc03704186cd9438143a7edfd6f006, type: 3}
-  wrongItem: {fileID: 8300000, guid: 156a35d20e39b4a5d95c93d49e9d812e, type: 3}
 --- !u!61 &2058336913
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11053,6 +11139,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.82030654, y: 0.7558041}
   m_EdgeRadius: 0
+--- !u!114 &2058336915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058336908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e33454e3bafa47ad895f2a69fdc66dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regularSprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
+  spookySprite: {fileID: 7449215478761812813, guid: 245baac2e87394fcebec665ba0ef162d, type: 3}
+  spriteRenderer: {fileID: 736239571}
+  requiredItem: {fileID: 11400000, guid: 7e8f1d5f89b89485c86ac9697150791c, type: 2}
+  interactedWith: 0
+  success: {fileID: 8300000, guid: eedc03704186cd9438143a7edfd6f006, type: 3}
+  wrongItem: {fileID: 8300000, guid: 156a35d20e39b4a5d95c93d49e9d812e, type: 3}
 --- !u!1 &2076955531
 GameObject:
   m_ObjectHideFlags: 0
@@ -11315,7 +11420,7 @@ MonoBehaviour:
   idleRight: {fileID: 8050775605590023107, guid: 9a701f363a8124d47b18ab27194638a2, type: 3}
   walkAnimator: {fileID: 9100000, guid: 6bd1bec23a18547ee85653ed77ff12f0, type: 2}
   waypoints:
-  - {fileID: 0}
+  - {fileID: 1944324292}
   isEnemy: 0
   detectionRange: 2
   playerLayer:
@@ -11995,7 +12100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2905506570770969973, guid: 24309012bafac446b9c7fe26a3851b48, type: 3}
       propertyPath: 'dialogue.Array.data[0]'
-      value: '"Good morning!"'
+      value: '"Hello."'
       objectReference: {fileID: 0}
     - target: {fileID: 2905506570770969973, guid: 24309012bafac446b9c7fe26a3851b48, type: 3}
       propertyPath: 'dialogue.Array.data[1]'
@@ -12205,7 +12310,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 173443588391589899, guid: 68abb966b37ca4a8589be5dfb673667e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -420.12018
+      value: -420.1202
       objectReference: {fileID: 0}
     - target: {fileID: 183144928715114039, guid: 68abb966b37ca4a8589be5dfb673667e, type: 3}
       propertyPath: open
@@ -12417,7 +12522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5163676349012012871, guid: 68abb966b37ca4a8589be5dfb673667e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -605.00006
+      value: -605.0001
       objectReference: {fileID: 0}
     - target: {fileID: 5163676349012012871, guid: 68abb966b37ca4a8589be5dfb673667e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -12545,7 +12650,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 8754519182309027924, guid: 68abb966b37ca4a8589be5dfb673667e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 436
+      value: 436.00003
       objectReference: {fileID: 0}
     - target: {fileID: 8754519182309027924, guid: 68abb966b37ca4a8589be5dfb673667e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -12647,7 +12752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: 'comment.Array.data[0]'
-      value: '"It''s probably too early to go to bed..."'
+      value: '"Was that a dream?"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413086464736398730, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
+      propertyPath: 'comment.Array.data[1]'
+      value: '"Everything is so foggy..."'
       objectReference: {fileID: 0}
     - target: {fileID: 8321712302836750539, guid: 2c7f77d2c5b8643909749461436734c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -12728,3 +12837,4 @@ SceneRoots:
   - {fileID: 1323823070}
   - {fileID: 1595528845}
   - {fileID: 1747093422}
+  - {fileID: 654557861}

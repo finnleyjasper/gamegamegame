@@ -4,18 +4,24 @@ using UnityEngine;
 using System.Collections;
 using System.Threading;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting.FullSerializer;
 
 public class SecondSceneManager : MonoBehaviour
 {
-    private enum FirstSceneGameState
+    private enum SecondSceneGameState
     {
         FirstCutscene,
         TaskOne,
         TaskOneFinished,
         TaskOneFinishedDoctorSpeaking,
-        SecondCutsceneDialogue,
+        WaitingForSoup,
+        SoupPlaced,
+        DoctorLeaving,
+        DoctorHasLeft,
+        PlayerSpeakingSoup,
+        FreeRoam
     }
-    private FirstSceneGameState state = FirstSceneGameState.FirstCutscene;
+    private SecondSceneGameState state = SecondSceneGameState.FirstCutscene;
 
     private Player player;
     [SerializeField] private NPC playerDialogueControl;
@@ -24,7 +30,9 @@ public class SecondSceneManager : MonoBehaviour
 
     [Header("Items")]
     [SerializeField] private PickupItem key;
-    [SerializeField] private InteractableItem door;
+    [SerializeField] private Door door;
+    [SerializeField] private PickupItem soup;
+    [SerializeField] private DialogueItem tray;
 
     [Header("Tasks")]
     [SerializeField] private WaypointTask taskOne;
@@ -40,8 +48,8 @@ public class SecondSceneManager : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Player>();
         playerDialogueControl = GameObject.Find("PlayerDialogueControl").GetComponent<NPC>();
 
-        Vector3 fixedCameraPos = new Vector3(8.45f, -2.5f, -10.0f);
-        Manager.Instance.SetCutscene(true, fixedCameraPos);
+        Vector3 vec = new Vector3(player.transform.position.x, player.transform.position.y, -1);
+        Manager.Instance.SetCutscene(true, vec);
 
         doctor.GetComponent<WaypointController>().enabled = false;
         doctor.Speak();
@@ -51,6 +59,7 @@ public class SecondSceneManager : MonoBehaviour
         playerDialogueControl.gameObject.SetActive(false);
 
         panel.gameObject.SetActive(false);
+        soup.gameObject.SetActive(false);
     }
 
     void Update()
@@ -58,7 +67,7 @@ public class SecondSceneManager : MonoBehaviour
         CheckState();
 
         // show initial presss E dialogue hint
-        if (state == FirstSceneGameState.FirstCutscene)
+        if (state == SecondSceneGameState.FirstCutscene)
         {
             if (DialogueManager.Instance.CurrentIndex == 0)
             {
@@ -71,7 +80,7 @@ public class SecondSceneManager : MonoBehaviour
         }
 
         // turn off QTE
-        if (state == FirstSceneGameState.TaskOne && taskTwo.successful)
+        if (state == SecondSceneGameState.TaskOne && taskTwo.successful)
         {
             taskTwo.enabled = false;
         }
@@ -87,9 +96,9 @@ public class SecondSceneManager : MonoBehaviour
     public void CheckState()
     {
         //  first cutscene -> task one
-        if (!DialogueManager.Instance.IsDialogueActive() && state == FirstSceneGameState.FirstCutscene)
+        if (!DialogueManager.Instance.IsDialogueActive() && state == SecondSceneGameState.FirstCutscene)
         {
-            state = FirstSceneGameState.TaskOne;
+            state = SecondSceneGameState.TaskOne;
             doctor.GetComponent<CircleCollider2D>().radius = 4f;
 
             string[] newDialogue = {
@@ -101,22 +110,80 @@ public class SecondSceneManager : MonoBehaviour
 
         }
         // player finished tasks, talk to dr
-        else if (state == FirstSceneGameState.TaskOne && taskOne.isComplete && taskTwo.successful)
+        else if (state == SecondSceneGameState.TaskOne && taskOne.isComplete && taskTwo.successful)
         {
-            state = FirstSceneGameState.TaskOneFinished;
-            // qte was for somereason broken just accept this jankness
+            state = SecondSceneGameState.TaskOneFinished;
             string[] newDialogue = {
             "\"Thank you for completing your tests. You seem to be doing well.\"",
             "\"I will now provide you with your morning meal.\"",};
             doctor.UpdateDialogue(newDialogue);
         }
         // player must go speak to dr
-        else if (state == FirstSceneGameState.TaskOneFinished)
+        else if (state == SecondSceneGameState.TaskOneFinished)
         {
             if (doctor.RecentlyFinished)
             {
-                state = FirstSceneGameState.TaskOneFinishedDoctorSpeaking;
+                state = SecondSceneGameState.TaskOneFinishedDoctorSpeaking;
             }
+        }
+        else if (state == SecondSceneGameState.TaskOneFinishedDoctorSpeaking)
+        {
+            Vector3 fixedCameraPos = GameObject.Find("Main Camera").transform.position;
+            Manager.Instance.SetCutscene(true, fixedCameraPos);
+            StartCoroutine(DelayStateChange(SecondSceneGameState.SoupPlaced, 1f));
+            state = SecondSceneGameState.WaitingForSoup;
+        }
+        else if (state == SecondSceneGameState.SoupPlaced && !soup.gameObject.activeSelf)
+        {
+            soup.gameObject.SetActive(true);
+            tray.gameObject.tag = "Untagged";
+            Collider2D[] cols = tray.gameObject.GetComponents<Collider2D>();
+            foreach (Collider2D col in cols)
+            {
+                col.enabled = false;
+            }
+            tray.enabled = false;
+
+            string[] newDialogue = {
+                "\"Be sure to finish it.\"",
+                "\"I will return at your next meal time.\""
+            };
+            doctor.UpdateDialogue(newDialogue);
+            doctor.Speak();
+        }
+        else if (state == SecondSceneGameState.SoupPlaced && !DialogueManager.Instance.IsDialogueActive() && doctor.RecentlyFinished)
+        {
+            door.gameObject.SetActive(false);
+            doctor.GetComponent<WaypointController>().enabled = true;
+            state = SecondSceneGameState.DoctorLeaving;
+        }
+        // doctor on their way out
+        else if (state == SecondSceneGameState.DoctorLeaving)
+        {
+            float distanceToWaypoint = Vector2.Distance(doctor.transform.position, doctor.GetComponent<WaypointController>().waypoints[0].position);
+            if (distanceToWaypoint < 1) // give control back to the player after dr actually left
+            {
+                door.gameObject.SetActive(true);
+                doctor.gameObject.SetActive(false);
+                state = SecondSceneGameState.DoctorHasLeft;
+                door.GetComponent<DialogueItem>().enabled = false;
+                door.enabled = true;
+                door.tag = "Interaction";
+                Manager.Instance.SetCutscene(false, player.transform.position);
+            }
+        }
+        // player picked up soup, show dialogue
+        else if (state == SecondSceneGameState.DoctorHasLeft && player.GetComponent<PlayerInventory>().ContainsItem(soup.itemData))
+        {
+            Vector3 fixedCameraPos = GameObject.Find("Main Camera").transform.position;
+            Manager.Instance.SetCutscene(true, fixedCameraPos);
+            Invoke("PlayerSpeak", 0.41f);
+            state = SecondSceneGameState.PlayerSpeakingSoup;
+        }
+        else if (state == SecondSceneGameState.PlayerSpeakingSoup && !playerDialogueControl.gameObject.activeSelf)
+        {
+            Manager.Instance.SetCutscene(false, player.transform.position);
+            state = SecondSceneGameState.FreeRoam;
         }
     }
 
@@ -131,6 +198,12 @@ public class SecondSceneManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
         door.gameObject.SetActive(false);
+    }
+
+    private IEnumerator DelayStateChange(SecondSceneGameState newState, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        state = newState;
     }
 
     private void RemovePanel()

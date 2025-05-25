@@ -17,6 +17,7 @@ public class UIHint : MonoBehaviour
     public void ShowHint(bool show, GameObject caller)
     {
         string text = "Press ";
+        Debug.Log("caller: " + caller.name);
 
         if (caller.tag == "Item")
         {

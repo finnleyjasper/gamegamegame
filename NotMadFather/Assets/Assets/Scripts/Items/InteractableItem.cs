@@ -23,6 +23,11 @@ public class InteractableItem : SwitchableSprite
 
     void Update()
     {
+        ShouldBeInteractedWith();
+    }
+
+    protected void ShouldBeInteractedWith()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && playerInZone)
             {
                 if (player.equippedItem == requiredItem)
