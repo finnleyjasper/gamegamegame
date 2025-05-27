@@ -186,10 +186,10 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.59375, y: 0.90625}
+  m_Size: {x: 3.08, y: 7.78}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2905506570770969973
@@ -206,11 +206,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regularSprite: {fileID: -4896621567232051643, guid: a2d4c249fe7d70946a4b9d9f59a2d2fc, type: 3}
   spookySprite: {fileID: -7207107238128305837, guid: 694688adbd8cb7c4797b720e0d0e7e41, type: 3}
+  spriteRenderer: {fileID: 0}
+  characterName: 
   dialogue:
   - '"Hello this is my dialogue"'
   - '"Did you know finn hates spelling the word ''dialogue''?"'
   - '"Anyway, he''s the coolest isn''t he..."'
-  currentDialogueMode: 0
 --- !u!1 &2752623497378961443
 GameObject:
   m_ObjectHideFlags: 0

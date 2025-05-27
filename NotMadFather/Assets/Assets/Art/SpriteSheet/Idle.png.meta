@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 8e7d491f984720546ac3f6b249efb963
+guid: 9b6042219e25f1445bba530e24a08cd0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1046774337220001493
-    second: Girl walking back sheet._0
-  - first:
-      213: -5318842780957067611
-    second: Girl walking back sheet._1
-  - first:
-      213: -2988464406201418407
-    second: Girl walking back sheet._2
-  - first:
-      213: -9073966236715607757
-    second: Girl walking back sheet._3
-  - first:
-      213: 3984842621107926985
-    second: Girl walking back sheet._4
+      213: 4723107735738678597
+    second: Idle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Girl walking back sheet._0
+      name: Idle_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 15
-        width: 19
-        height: 30
+        x: 0
+        y: 0
+        width: 307
+        height: 777
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,96 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b21c10e494c1971f0800000000000000
-      internalID: -1046774337220001493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Girl walking back sheet._1
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 15
-        width: 19
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5a637e0dbacaf26b0800000000000000
-      internalID: -5318842780957067611
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Girl walking back sheet._2
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 15
-        width: 19
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 95d3774c477d686d0800000000000000
-      internalID: -2988464406201418407
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Girl walking back sheet._3
-      rect:
-        serializedVersion: 2
-        x: 214
-        y: 15
-        width: 19
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3399dac98cbc21280800000000000000
-      internalID: -9073966236715607757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Girl walking back sheet._4
-      rect:
-        serializedVersion: 2
-        x: 278
-        y: 15
-        width: 19
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9c779f450410d4730800000000000000
-      internalID: 3984842621107926985
+      spriteID: 54d7a982679db8140800000000000000
+      internalID: 4723107735738678597
       vertices: []
       indices: 
       edges: []
@@ -260,12 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Girl walking back sheet._0: -1046774337220001493
-      Girl walking back sheet._1: -5318842780957067611
-      Girl walking back sheet._2: -2988464406201418407
-      Girl walking back sheet._3: -9073966236715607757
-      Girl walking back sheet._4: 3984842621107926985
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

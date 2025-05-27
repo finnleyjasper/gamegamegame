@@ -116,7 +116,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4005189183157110119}
@@ -158,7 +158,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 0.88553476}
+  m_Size: {x: 9.233967, y: 24.088345}
   m_Direction: 0
 --- !u!50 &1959170214215590032
 Rigidbody2D:
@@ -236,10 +236,10 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.59375, y: 0.90625}
+  m_Size: {x: 3.08, y: 7.78}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &51918360411217886
@@ -254,6 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa8df87e57754fd9b888a262304d82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPosition: {x: 0, y: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &3957239065055420959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   idleDown: {fileID: -4896621567232051643, guid: a2d4c249fe7d70946a4b9d9f59a2d2fc, type: 3}
-  idleUp: {fileID: 6936131389808231462, guid: a2d4c249fe7d70946a4b9d9f59a2d2fc, type: 3}
+  idleUp: {fileID: -2643913789426644627, guid: c77f745365f8bfa4da6695bdf6e21275, type: 3}
   idleRight: {fileID: 1449923087123905396, guid: a2d4c249fe7d70946a4b9d9f59a2d2fc, type: 3}
   walkAnimator: {fileID: 9100000, guid: a09175b8bcb08044e9ce63769b17e5fe, type: 2}
 --- !u!1 &8137752302571385602

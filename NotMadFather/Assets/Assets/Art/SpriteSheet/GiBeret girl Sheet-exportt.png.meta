@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: 6936131389808231462
     second: GiBeret girl Sheet-exportt_2
+  - first:
+      213: 827087295482052729
+    second: GiBeret girl Sheet-exportt_3
+  - first:
+      213: -6555567220187239788
+    second: GiBeret girl Sheet-exportt_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -135,20 +141,20 @@ TextureImporter:
       name: GiBeret girl Sheet-exportt_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 19
-        height: 29
+        x: 0
+        y: 11
+        width: 320
+        height: 777
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 546fd95c0a4bb0cb0800000000000000
-      internalID: -4896621567232051643
+      spriteID: c41d3a2a126022544bcbde6e1003cbd2
+      internalID: 2035511176
       vertices: []
       indices: 
       edges: []
@@ -157,20 +163,20 @@ TextureImporter:
       name: GiBeret girl Sheet-exportt_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 0
-        width: 18
-        height: 29
+        x: 320
+        y: 11
+        width: 320
+        height: 777
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 47b78af9d592f1410800000000000000
-      internalID: 1449923087123905396
+      spriteID: 4f60773fd7ea97b43befde96ba93c09d
+      internalID: 295657813
       vertices: []
       indices: 
       edges: []
@@ -179,20 +185,20 @@ TextureImporter:
       name: GiBeret girl Sheet-exportt_2
       rect:
         serializedVersion: 2
-        x: 70
-        y: 0
-        width: 19
-        height: 29
+        x: 640
+        y: 11
+        width: 320
+        height: 777
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 624c4f4ffb6124060800000000000000
-      internalID: 6936131389808231462
+      spriteID: 587a911d756601d43b14cf451fc8ea89
+      internalID: 2078182584
       vertices: []
       indices: 
       edges: []
@@ -201,7 +207,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 78a3741f009b49240a9e9d754d18f55a
     internalID: 0
     vertices: []
     indices: 
@@ -211,9 +217,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GiBeret girl Sheet-exportt_0: -4896621567232051643
-      GiBeret girl Sheet-exportt_1: 1449923087123905396
-      GiBeret girl Sheet-exportt_2: 6936131389808231462
+      GiBeret girl Sheet-exportt_0: 2035511176
+      GiBeret girl Sheet-exportt_1: 295657813
+      GiBeret girl Sheet-exportt_2: 2078182584
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
