@@ -19,9 +19,12 @@ public class SecondSceneManager : MonoBehaviour
         DoctorLeaving,
         DoctorHasLeft,
         PlayerSpeakingSoup,
+        FreeRoamBeforeTimer,
+        FreeRoamAfterTimer,
+        FreeRoamBeforeChange,
         FreeRoam
     }
-    private SecondSceneGameState state = SecondSceneGameState.FirstCutscene;
+    [SerializeField] private SecondSceneGameState state = SecondSceneGameState.FirstCutscene;
 
     private Player player;
     [SerializeField] private NPC playerDialogueControl;
@@ -183,7 +186,28 @@ public class SecondSceneManager : MonoBehaviour
         else if (state == SecondSceneGameState.PlayerSpeakingSoup && !playerDialogueControl.gameObject.activeSelf)
         {
             Manager.Instance.SetCutscene(false, player.transform.position);
+            state = SecondSceneGameState.FreeRoamBeforeTimer;
+        }
+        // player finished speaking, start countdown to change
+        else if (state == SecondSceneGameState.FreeRoamBeforeTimer)
+        {
+            StartCoroutine(DelayStateChange(SecondSceneGameState.FreeRoamBeforeChange, 2f));
+            state = SecondSceneGameState.FreeRoamAfterTimer;
+        }
+        else if (state == SecondSceneGameState.FreeRoamBeforeChange)
+        {
+            Vector3 fixedCameraPos = GameObject.Find("Main Camera").transform.position;
+            Manager.Instance.SetCutscene(true, fixedCameraPos);
+            Manager.Instance.MedicationState(false);
+            Debug.Log("MEDICATION STATE: " + Manager.Instance.medication);
+            string[] newD = { "\"Oh no...\"", "\"It's happening again.\"", "\"I have to know what this is.\"" };
+            playerDialogueControl.UpdateDialogue(newD);
+            PlayerSpeak();
             state = SecondSceneGameState.FreeRoam;
+        }
+        else if (state == SecondSceneGameState.FreeRoam && playerDialogueControl.RecentlyFinished)
+        {
+            Manager.Instance.SetCutscene(false, player.transform.position);
         }
     }
 

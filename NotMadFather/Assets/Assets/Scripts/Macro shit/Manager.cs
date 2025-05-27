@@ -67,14 +67,13 @@ public class Manager : MonoBehaviour
     void Update()
     {
         PlayerInventory playerInv = player.GetComponent<PlayerInventory>();
-
         //player uses medication
-        if (playerInv.equippedItem.name == "Medication" && Input.GetKeyDown(KeyCode.Space) && !medication)
-        {
-            medication = true;
-            Debug.Log("Medication state is: true");
-            MedicationState(true);
-        }
+            if (playerInv.equippedItem.name == "Medication" && Input.GetKeyDown(KeyCode.Space) && !medication)
+            {
+                medication = true;
+                Debug.Log("Medication state is: true");
+                MedicationState(true);
+            }
 
         // player looks at photo
         if (playerInv.equippedItem.name == "Photo" && Input.GetKeyDown(KeyCode.Space))
@@ -101,10 +100,11 @@ public class Manager : MonoBehaviour
 
 // MEDICATION SWITCH UPDATES ******************************************************************************
 
-    public void MedicationState(bool medication) // true and world is normal, false and switches to weird withdrawl shit
+    public void MedicationState(bool medicationState) // true and world is normal, false and switches to weird withdrawl shit
     {
-        if (medication) // normal
+        if (medicationState) // normal
         {
+            medication = true;
             UpdateFonts(normalFont);
             UpdateSprites(medication);
             overlay.SetActive(false);
@@ -114,6 +114,7 @@ public class Manager : MonoBehaviour
         }
         else // withdrawl
         {
+            medication = false;
             UpdateFonts(scaryFont);
             UpdateSprites(medication);
             overlay.SetActive(true);
