@@ -6,6 +6,11 @@ public class Door : InteractableItem
 
     void Update()
     {
+        CheckForDelete();
+    }
+
+    void CheckForDelete()
+    {
         ShouldBeInteractedWith();
         if (interactedWith && !deleteScheduled)
         {

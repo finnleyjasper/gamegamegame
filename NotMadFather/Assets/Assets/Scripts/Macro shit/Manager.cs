@@ -3,6 +3,7 @@ using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -68,7 +69,7 @@ public class Manager : MonoBehaviour
     {
         PlayerInventory playerInv = player.GetComponent<PlayerInventory>();
         //player uses medication
-            if (playerInv.equippedItem.name == "Medication" && Input.GetKeyDown(KeyCode.Space) && !medication)
+            if (playerInv.equippedItem.name == "Soup" && Input.GetKeyDown(KeyCode.Space) && !medication)
             {
                 medication = true;
                 Debug.Log("Medication state is: true");
@@ -76,7 +77,7 @@ public class Manager : MonoBehaviour
             }
 
         // player looks at photo
-        if (playerInv.equippedItem.name == "Photo" && Input.GetKeyDown(KeyCode.Space))
+        if (playerInv.equippedItem.name == "Memento" && Input.GetKeyDown(KeyCode.Space))
         {
             medication = false;
             Debug.Log("Medication state is: false");
@@ -94,8 +95,7 @@ public class Manager : MonoBehaviour
 
     private void Respawn()
     {
-        player.Respawn();
-        // reset enemies, items, the world etc etc
+        SceneManager.LoadScene("SecondScene");
     }
 
 // MEDICATION SWITCH UPDATES ******************************************************************************

@@ -52,7 +52,7 @@ public class UIHint : MonoBehaviour
         if (caller.tag == "Item")
         {
             PickupItem item = caller.GetComponent<PickupItem>();
-            text = "You picked up " + item.itemData.name;
+            text = "Picked up " + item.itemData.name;
         }
         else if (caller.tag == "Interaction")
         {

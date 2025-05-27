@@ -22,7 +22,15 @@ public class SecondSceneManager : MonoBehaviour
         FreeRoamBeforeTimer,
         FreeRoamAfterTimer,
         FreeRoamBeforeChange,
-        FreeRoam
+        FreeRoamNoMeme,
+        FreeRoamNoMemeWait,
+        FreeRoamNoMemeStartSpeaking,
+        FreeRoamNoMemeSpeaking,
+        FreeRoamMemeSpeaking,
+        FreeRoamMeme,
+        FreeRoamMemeWithdrawlSpeaking,
+        FreeRoam,
+        OLIVERDONTLOOKATTHIS
     }
     [SerializeField] private SecondSceneGameState state = SecondSceneGameState.FirstCutscene;
 
@@ -36,6 +44,8 @@ public class SecondSceneManager : MonoBehaviour
     [SerializeField] private Door door;
     [SerializeField] private PickupItem soup;
     [SerializeField] private DialogueItem tray;
+    [SerializeField] private PickupItem memento;
+    [SerializeField] private DialogueItem bed;
 
     [Header("Tasks")]
     [SerializeField] private WaypointTask taskOne;
@@ -63,6 +73,7 @@ public class SecondSceneManager : MonoBehaviour
 
         panel.gameObject.SetActive(false);
         soup.gameObject.SetActive(false);
+        bed.enabled = false;
     }
 
     void Update()
@@ -103,6 +114,7 @@ public class SecondSceneManager : MonoBehaviour
         {
             state = SecondSceneGameState.TaskOne;
             doctor.GetComponent<CircleCollider2D>().radius = 4f;
+            bed.enabled = true;
 
             string[] newDialogue = {
             "\"Yes, you are having trouble with your memory.\"",
@@ -203,11 +215,44 @@ public class SecondSceneManager : MonoBehaviour
             string[] newD = { "\"Oh no...\"", "\"It's happening again.\"", "\"I have to know what this is.\"" };
             playerDialogueControl.UpdateDialogue(newD);
             PlayerSpeak();
-            state = SecondSceneGameState.FreeRoam;
+            state = SecondSceneGameState.FreeRoamNoMeme;
         }
-        else if (state == SecondSceneGameState.FreeRoam && playerDialogueControl.RecentlyFinished)
+        else if (state == SecondSceneGameState.FreeRoamNoMeme && playerDialogueControl.RecentlyFinished && !player.GetComponent<PlayerInventory>().ContainsItem(memento.itemData))
         {
             Manager.Instance.SetCutscene(false, player.transform.position);
+        }
+        else if (state == SecondSceneGameState.FreeRoamNoMeme && player.GetComponent<PlayerInventory>().ContainsItem(memento.itemData))
+        {
+            Vector3 fixedCameraPos = GameObject.Find("Main Camera").transform.position;
+            Manager.Instance.SetCutscene(true, fixedCameraPos);
+            state = SecondSceneGameState.FreeRoamNoMemeWait;
+            StartCoroutine(DelayStateChange(SecondSceneGameState.FreeRoamNoMemeStartSpeaking, 0.45f));
+        }
+        else if (state == SecondSceneGameState.FreeRoamNoMemeStartSpeaking)
+        {
+            state = SecondSceneGameState.FreeRoamMemeSpeaking;
+            string[] newD = { "\"This... this was my family...\"", "\"...And that's me.\"", "\"I remember.\"" };
+            playerDialogueControl.UpdateDialogue(newD);
+            PlayerSpeak();
+        }
+        else if (state == SecondSceneGameState.FreeRoamMemeSpeaking && !DialogueManager.Instance.IsDialogueActive())
+        {
+            state = SecondSceneGameState.OLIVERDONTLOOKATTHIS;
+            StartCoroutine(DelayStateChange(SecondSceneGameState.FreeRoamMeme, 1.5f));
+        }
+        else if (state == SecondSceneGameState.FreeRoamMeme)
+        {
+            Manager.Instance.MedicationState(false);
+            string[] newd = { "\"Oh god...\"", "\"What are they doing to us?\"" };
+            playerDialogueControl.UpdateDialogue(newd);
+            state = SecondSceneGameState.FreeRoamMemeWithdrawlSpeaking;
+            PlayerSpeak();
+        }
+        else if (state == SecondSceneGameState.FreeRoamMemeWithdrawlSpeaking && !DialogueManager.Instance.IsDialogueActive())
+        {
+            Vector3 c = new Vector3(player.transform.position.x, player.transform.position.y, -1);
+            Manager.Instance.SetCutscene(false, c);
+            state = SecondSceneGameState.FreeRoam;
         }
     }
 

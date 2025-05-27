@@ -2339,7 +2339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 526868082255426487, guid: 52e3fe3a75459471d9c41ce01f096e6c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 526868082255426487, guid: 52e3fe3a75459471d9c41ce01f096e6c, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2347,7 +2347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 526868082255426487, guid: 52e3fe3a75459471d9c41ce01f096e6c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 526868082255426487, guid: 52e3fe3a75459471d9c41ce01f096e6c, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2359,7 +2359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 526868082255426487, guid: 52e3fe3a75459471d9c41ce01f096e6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 526868082255426487, guid: 52e3fe3a75459471d9c41ce01f096e6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -6780,7 +6780,7 @@ MonoBehaviour:
   onFailure:
     m_PersistentCalls:
       m_Calls: []
-  sceneManager: 
+  sceneManager: FirstSceneManager
   audioClip: {fileID: 8300000, guid: eedc03704186cd9438143a7edfd6f006, type: 3}
 --- !u!1001 &7277181430040115323
 PrefabInstance:

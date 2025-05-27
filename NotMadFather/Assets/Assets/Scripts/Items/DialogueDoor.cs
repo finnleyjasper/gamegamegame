@@ -18,13 +18,15 @@ public class DialogueDoor : MonoBehaviour
 
     void Update()
     {
-        if (playerInventory.equippedItem = door.requiredItem)
+        if (playerInventory.equippedItem == door.requiredItem)
         {
             dialogueItem.enabled = false;
+            gameObject.tag = "Interaction";
             door.enabled = true;
         }
         else
         {
+            gameObject.tag = "Dialogue Item";
             dialogueItem.enabled = true;
             door.enabled = false;
         }

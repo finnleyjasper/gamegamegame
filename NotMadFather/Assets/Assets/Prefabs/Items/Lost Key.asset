@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8c2e0d96aaa70c41a1ee2f60780e037, type: 3}
-  m_Name: Memento
+  m_Name: Lost Key
   m_EditorClassIdentifier: 
-  itemName: ...me?
-  icon: {fileID: 6592019616286878192, guid: 1670a5a48c7404e9ea95a4c683a7fa13, type: 3}
+  itemName: Lost Key
+  icon: {fileID: 1877090932, guid: bbf2e6dbb87814266b5a340f483d44e2, type: 3}

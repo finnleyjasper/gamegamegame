@@ -220,10 +220,11 @@ public class FirstSceneManager : MonoBehaviour
         {
             badDoctor.GetComponent<NPC>().enabled = false;
             badDoctor.GetComponent<Dangerous>().enabled = true;
-            badDoctor.GetComponent<WaypointController>().waypoints[0] = player.transform;
+            //badDoctor.GetComponent<WaypointController>().waypoints[0] = player.transform;
             badDoctor.GetComponent<WaypointController>().patrolSpeed = 10f;
 
-            if (player.GetComponent<NoticedControl>().eyesRemaining < 3)
+            float distance = Vector2.Distance(badDoctor.transform.position, player.transform.position);
+            if (distance < 2)
             {
                 foreach (Eye eye in player.GetComponent<NoticedControl>().eyes)
                 {
