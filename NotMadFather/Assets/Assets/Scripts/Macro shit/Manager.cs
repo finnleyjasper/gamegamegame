@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Rendering;
+//using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
@@ -69,12 +69,12 @@ public class Manager : MonoBehaviour
     {
         PlayerInventory playerInv = player.GetComponent<PlayerInventory>();
         //player uses medication
-            if (playerInv.equippedItem.name == "Soup" && Input.GetKeyDown(KeyCode.Space) && !medication)
-            {
-                medication = true;
-                Debug.Log("Medication state is: true");
-                MedicationState(true);
-            }
+        if (playerInv.equippedItem.name == "Soup" && Input.GetKeyDown(KeyCode.Space) && !medication)
+        {
+            medication = true;
+            Debug.Log("Medication state is: true");
+            MedicationState(true);
+        }
 
         // player looks at photo
         if (playerInv.equippedItem.name == "Memento" && Input.GetKeyDown(KeyCode.Space))
@@ -89,6 +89,7 @@ public class Manager : MonoBehaviour
         {
             Invoke("Respawn", 2);
         }
+
     }
 
 // PLAYER CONTROL ******************************************************************************
