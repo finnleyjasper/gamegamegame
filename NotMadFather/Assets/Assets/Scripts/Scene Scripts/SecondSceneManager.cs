@@ -203,7 +203,7 @@ public class SecondSceneManager : MonoBehaviour
         // player finished speaking, start countdown to change
         else if (state == SecondSceneGameState.FreeRoamBeforeTimer)
         {
-            StartCoroutine(DelayStateChange(SecondSceneGameState.FreeRoamBeforeChange, 2f));
+            StartCoroutine(DelayStateChange(SecondSceneGameState.FreeRoamBeforeChange, 5f));
             state = SecondSceneGameState.FreeRoamAfterTimer;
         }
         else if (state == SecondSceneGameState.FreeRoamBeforeChange)
