@@ -426,7 +426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.022}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -649.0001, y: -0.3999939}
+  m_AnchoredPosition: {x: -649.00006, y: -0.3999939}
   m_SizeDelta: {x: -33.05, y: -29.200012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42701060
@@ -4103,7 +4103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &728534181
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4744,7 +4744,7 @@ PrefabInstance:
       objectReference: {fileID: -3062334251930047351, guid: 8f93ac69a002e40fd84125201766b071, type: 3}
     - target: {fileID: 2905506570770969973, guid: 24309012bafac446b9c7fe26a3851b48, type: 3}
       propertyPath: characterName
-      value: Doctor
+      value: Patient
       objectReference: {fileID: 0}
     - target: {fileID: 2905506570770969973, guid: 24309012bafac446b9c7fe26a3851b48, type: 3}
       propertyPath: regularSprite
@@ -5563,7 +5563,7 @@ PrefabInstance:
       objectReference: {fileID: -3062334251930047351, guid: 8f93ac69a002e40fd84125201766b071, type: 3}
     - target: {fileID: 2905506570770969973, guid: 24309012bafac446b9c7fe26a3851b48, type: 3}
       propertyPath: characterName
-      value: Doctor
+      value: Patient
       objectReference: {fileID: 0}
     - target: {fileID: 2905506570770969973, guid: 24309012bafac446b9c7fe26a3851b48, type: 3}
       propertyPath: regularSprite
@@ -7103,7 +7103,7 @@ PrefabInstance:
       objectReference: {fileID: -7059046398200863858, guid: 068fe0e94be8d47e593dcbeb1a4a36dd, type: 3}
     - target: {fileID: 2905506570770969973, guid: 24309012bafac446b9c7fe26a3851b48, type: 3}
       propertyPath: characterName
-      value: Doctor
+      value: ???
       objectReference: {fileID: 0}
     - target: {fileID: 2905506570770969973, guid: 24309012bafac446b9c7fe26a3851b48, type: 3}
       propertyPath: regularSprite
@@ -12244,7 +12244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regularSprite: {fileID: 8050775605590023107, guid: 9a701f363a8124d47b18ab27194638a2, type: 3}
   spookySprite: {fileID: -4216930031064548263, guid: 7af1c6b65c0cd49c0ba1134a14555ed3, type: 3}
-  spriteRenderer: {fileID: 1377089133}
+  spriteRenderer: {fileID: 2029031511}
 --- !u!114 &2029031509
 MonoBehaviour:
   m_ObjectHideFlags: 0
